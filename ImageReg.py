@@ -36,6 +36,11 @@ os.makedirs(output_dir, exist_ok=True)
 before_orig = cv2.imread(before_filename)
 after_orig = cv2.imread(after_filename)
 
+if before_orig is None:
+    print(f"could not read before-image image file {before_filename} ")
+if after_orig is None:
+    print(f'could not read   after-image image file {after_filename}')
+
 before = before_orig.copy()
 after = after_orig.copy()
 
@@ -211,7 +216,7 @@ def findGridResponse(img, xoff, yoff, gx, gy, angle, showdot=False):
             continue
         dot = countPixelsAtGridPoint(img_rotated, radius, p1)
         response = response + dot
-        if showdot
+
 
     return response
 
@@ -226,7 +231,7 @@ def findMaxGridResponse(img):
         for yoff in np.arange(dy-1,dy+1,0.25):
             for gx in np.arange(gridx-1,gridx+1,0.25):
                 for gy in np.arange(gridy-1,gridy+1,0.25):
-                    resp = findGridResponse(img,xoff, yoff, gx, gy,angle)
+                    resp = findGridResponse(img,xoff, yoff, gx, gy,r_angle)
                     n = n + 1
                     print(n,xoff,yoff,gx,gy,resp)
                     if resp > max_response:

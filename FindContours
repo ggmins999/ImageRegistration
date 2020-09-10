@@ -31,43 +31,20 @@ after_filename = args['after_image'] if args['after_image'] else "QDOT.jpg"
 # check if output images directory exists, if not try to create it
 os.makedirs(output_dir, exist_ok=True)
 
-def convertToSquare(img):
-    height = img.shape[0]
-    width = img.shape[1]
-    dim = int(min(height,width))
-    cx = width/2
-    cy = height /2
-    minx = int(cx-dim/2)
-    maxx = int(cx+dim/2)
-    miny= int(cy-dim/2)
-    maxy = int(cy+dim/2)
-    slice = img[miny:maxy,minx:maxx]
-    return slice
-
-
 #loads in images
 #before = cv2.imread("/Users/gigiminsky/Google Drive/Amelia Projects/B9_-1_1_1_Stitched[SYBR Comet_GFP 469,525]_001.jpg")
-before_orig = cv2.imread(before_filename)
-after_orig = cv2.imread(after_filename)
+before = cv2.imread(before_filename)
+after = cv2.imread(after_filename)
 
-if before_orig is None:
-    print(f"could not read before-image image file {before_filename} ")
-if after_orig is None:
-    print(f'could not read   after-image image file {after_filename}')
+before_orig = before.copy()
+after_orig = after.copy()
 
-before_orig = imutils.resize(convertToSquare(before_orig), width=4000)
-after_orig = imutils.resize(convertToSquare(after_orig), width=4000)
-
-
-before = before_orig.copy()
-after = after_orig.copy()
 
 before = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
 after = cv2.cvtColor(after, cv2.COLOR_BGR2GRAY)
 
 ret, before = cv2.threshold(before, 0,255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 ret, after = cv2.threshold(after, 0,255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-
 
 # increment of rotation adjustment
 r_angle = 0.25
@@ -96,29 +73,29 @@ centerX = resizedbefore.shape[1] / 2
 centerY= resizedbefore.shape[0]/2
 wellRadius = resizedbefore.shape[0] / 2.5
 
-# try it now
-
-#def drawGrid(img,xoff,yoff): #function to draw the grid of circles, nested loops
-    #w = img.shape[1]
-    #h = img.shape[0]
-    #for x in np.arange(cropleft, w-cropright, gridx):
-     #   for y in np.arange(cropleft,h-cropright,gridy):
-        #    p1 = (int(x+xoff),int(y+yoff))
-         #   cv2.circle(img, p1, 10,(0,0,255),1) #draws circle grid across x axis
-   # for x in np.arange(cropleft, w-cropright, gridx):
-    #    for y in np.arange(cropleft,h-cropright,gridy):
-    #        p1 = (int(x+xoff+gridx/2),int(y+yoff+gridy/2))
-     #       cv2.circle(img, p1,10,(0,0,255),1) #draws circle grid across y axis
+def doThreshold(img):
+    retval, bitmap = cv2.threshold(img,80,255,cv2.THRESH_BINARY)
+    return bitmap
 
 
 def drawGrid(img,xoff,yoff):
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    before_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    before_thresh = doThreshold(before_gray)
+    img = cv2.cvtColor(before_thresh, cv2.COLOR_GRAY2BGR)
+
+    cv2.putText(img, f'gridresponse = {findGridResponse(before_thresh, dx, dy, gridx, gridy, r_angle, annotate=img)}', (0,230), font, 1, (200,255,155), 2, cv2.LINE_AA)
+
     for p1 in gridpoints(img, xoff, yoff, gridx, gridy):
         cv2.circle(img, p1, 10, (0, 0, 255), 1)  # draws circle grid across x axis
 
     with open('grid-spacing.txt', 'w') as out_file:
         out_file.write(f'{dx},{dy},{gridx},{gridy},{r_angle}')
-    font = cv2.FONT_HERSHEY_SIMPLEX
+
     cv2.putText(img, f'dx,dy,gridx,gridy,r_angle = {dx},{dy},{gridx},{gridy},angle={r_angle}', (0, 130), font, 1, (200, 255, 155), 2, cv2.LINE_AA)
+
+    return img
+
 
 
 def writeGridPointFile (img,radius,point,name):
@@ -167,7 +144,7 @@ def gridpoints(img, xoff, yoff, gx, gy, center_x=centerX, center_y=centerY, max_
 
 def writeGrid(resized, imgbefore, imgafter,xoff,yoff, radius): #next i will take a slice out of this and add up the total intensities of the pixels get the sum of the array and write a loop that will try all the range of grid x grid y dx dy all the spacing and it will find the range that catches the most dots
     num = 1
-    working = resized.copy()
+    working = resizedbefore.copy()
     html = """<title>before/after slices</title>"""
     html += f'dx={dx},dy={dy},grid_x{gridx},grid_y{gridy}, r_angle={r_angle}'
     html += """
@@ -189,8 +166,6 @@ def writeGrid(resized, imgbefore, imgafter,xoff,yoff, radius): #next i will take
         pixels2 = writeGridPointFile( imgafter, radius, p1, f"{output_dir}/grid_a{num}")
         if pixels1 > 5:
             color = "green"
-        elif pixels1 > 10:
-            color = "dark green"
         else:
             color = "white"
         html = html + f'\n<tr><td bgcolor="{color}">Grid point {num}: {pixels1} {pixels2} <td> <img src=grid_b{num}.png> <td><img src=grid_a{num}.png></tr>'
@@ -210,53 +185,44 @@ def countPixelsAtGridPoint (img,radius,point):
     x2 = (x+radius)
     # return sum of pixels in the ROI
     slice = img[y1:y2, x1:x2]
-    edges = cv2.Canny(slice, 10, 100)
- #   vis = np.concatenate((slice, edges), axis=1)
- #   wname = f'slice{cv2.countNonZero(edges)}'
- #   cv2.imshow(wname, vis)
-  #  cv2.waitKey(0)
-  #  cv2.destroyWindow(wname)
-    # threshold = cv2.inRange(slice, 15, 255)
-    if cv2.countNonZero(edges) > 0:
-        return 1
-    else:
-        return 0
+    return  1 if cv2.countNonZero(slice) > 2 else 0
 
-def findGridResponse(img, xoff, yoff, gx, gy, angle, showdot=False):
+
+
+def findGridResponse(img, xoff, yoff, gx, gy, angle, annotate=None):
     response = 0
     num = 1
-    radius = 6
+    radius = 5
     w = img.shape[0]
     h = img.shape[1]
     img_rotated =  imutils.rotate(img.copy(), angle)
 
-
-    for n, p1 in enumerate(gridpoints(img, xoff, yoff, gx, gy, max_radius=500)):
-        if n % 20 != 0:
-            continue
-        dot = countPixelsAtGridPoint(img_rotated, radius, p1)
-        response = response + dot
-
-
+    for n, p1 in enumerate(gridpoints(img, xoff, yoff, gx, gy, max_radius=400)):
+        #if n%2 != 0:
+        #    continue
+        npixels = countPixelsAtGridPoint(img_rotated,radius,p1)
+        if annotate is not None and npixels > 0:
+            cv2.circle(annotate, p1, radius, (255, 0, 0), 1)  # draws circle for nonzero pixel count
+        response = response + npixels
     return response
+
 
 
 def findMaxGridResponse(img):
     max_response = 0
-    max_params = (0,0,0,) # record what the params were when response was maximum
-    #-8.0,6.0,61.5,35.25
-    #-1.0,-47.0,62.0,35.0
+    max_params = (0,0,0,0,0) # record what the params were when response was maximum
     n = 0
-    for xoff in np.arange(dx-1,dx+1,0.25):
-        for yoff in np.arange(dy-1,dy+1,0.25):
-            for gx in np.arange(gridx-1,gridx+1,0.25):
-                for gy in np.arange(gridy-1,gridy+1,0.25):
-                    resp = findGridResponse(img,xoff, yoff, gx, gy,r_angle)
-                    n = n + 1
-                    print(n,xoff,yoff,gx,gy,resp)
-                    if resp > max_response:
-                        max_response = resp
-                        max_params = (xoff,yoff,gx, gy)
+    for angle in np.arange(r_angle-1, r_angle+1, 0.25):
+        for xoff in np.arange(dx-2,dx+2,1):
+            for yoff in np.arange(dy-2,dy+2,1):
+                for gx in np.arange(gridx-2,gridx+2,0.5):
+                    for gy in np.arange(gridy-2,gridy+2,0.5):
+                        resp = findGridResponse(img,xoff, yoff, gx, gy, angle)
+                        n = n + 1
+                        print(n,xoff,yoff,gx,gy,resp)
+                        if resp > max_response:
+                            max_response = resp
+                            max_params = (xoff,yoff,gx, gy, angle)
     print(f'max response was {max_response}, dx,dy,gridx,gridy={max_params}')
     return max_params
 
@@ -299,16 +265,9 @@ while True:
     before = imutils.rotate(before_orig.copy(), r_angle)
     after = imutils.rotate(after_orig.copy(), r_angle)
     resizedbefore = imutils.resize(before, width=int(width / 4.0))
-
-    resizedbefore = cv2.cvtColor(resizedbefore, cv2.COLOR_BGR2GRAY)
-
-    ret, resizedbefore = cv2.threshold(resizedbefore, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    #ret, resizedbefore = cv2.threshold(resizedbefore, 20, 255, cv2.THRESH_BINARY)
-
-    working = cv2.cvtColor(resizedbefore, cv2.COLOR_GRAY2BGR)
-
+    working = resizedbefore.copy()
     if show_grid:
-        drawGrid(working,dx,dy)
+        working = drawGrid(working,dx,dy)
     cv2.imshow("window", working)
     key = cv2.waitKey(1) & 0xFF
     if chr(key) == 'r':
@@ -334,12 +293,12 @@ while True:
     elif chr(key) == 'm':
         before_gray =  cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
         #before_thresh = cv2.adaptiveThreshold(before_gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV,11,2)
-        ret, before_thresh = cv2.threshold(before_gray,80,255,cv2.THRESH_BINARY)
+        before_thresh = doThreshold(before_gray)
         #kernel = np.ones((7, 7), np.uint8)
         #before_thresh = cv2.erode(before_thresh, kernel )
         before_thresh = imutils.resize(before_thresh, width=int(width / 4.0))
 
-        dx,dy,gridx,gridy = findMaxGridResponse(before_thresh)
+        dx,dy,gridx,gridy,r_angle = findMaxGridResponse(before_thresh)
     elif chr(key) == '1':
         r_angle += 0.25
     elif chr(key) == '2':
@@ -349,18 +308,5 @@ while True:
     elif chr(key) == '?':
         print(help)
 
-def s(im=None):
-    global k
-    if im is not None:
-        cv2.imshow('foo', im)
-    else:
-        cv2.imshow('foo', k)
-    cv2.waitKey(0)
 
-k = cv2.imread("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/grid_a343.png")
-
-def cometStats(img, threshold):
-    img = cv2.imread("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/grid_a343.png")
-    ret, before = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    cv2.imshow("window",img)
 

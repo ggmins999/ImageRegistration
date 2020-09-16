@@ -142,7 +142,14 @@ def gridpoints(img, xoff, yoff, gx, gy, center_x=centerX, center_y=centerY, max_
             yield p1
         row = row + 1
 
+
+def cleanCometFiles(dir):
+    for entry in os.scandir(dir):
+        if entry.name.startswith("grid") and entry.is_file():
+            os.remove(entry.path)
+
 def writeGrid(resized, imgbefore, imgafter,xoff,yoff, radius): #next i will take a slice out of this and add up the total intensities of the pixels get the sum of the array and write a loop that will try all the range of grid x grid y dx dy all the spacing and it will find the range that catches the most dots
+    cleanCometFiles(output_dir)
     num = 1
     working = resizedbefore.copy()
     html = """<title>before/after slices</title>"""

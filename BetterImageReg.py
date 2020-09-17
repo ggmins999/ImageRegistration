@@ -74,7 +74,7 @@ centerY= resizedbefore.shape[0]/2
 wellRadius = resizedbefore.shape[0] / 2.5
 
 def doThreshold(img):
-    retval, bitmap = cv2.threshold(img,80,255,cv2.THRESH_BINARY)
+    retval, bitmap = cv2.threshold(img,80,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
     return bitmap
 
 
@@ -147,7 +147,6 @@ def cleanCometFiles(dir):
     for entry in os.scandir(dir):
         if entry.name.startswith("grid") and entry.is_file():
             os.remove(entry.path)
-
 def writeGrid(resized, imgbefore, imgafter,xoff,yoff, radius): #next i will take a slice out of this and add up the total intensities of the pixels get the sum of the array and write a loop that will try all the range of grid x grid y dx dy all the spacing and it will find the range that catches the most dots
     cleanCometFiles(output_dir)
     num = 1
@@ -276,7 +275,7 @@ while True:
     if show_grid:
         working = drawGrid(working,dx,dy)
     cv2.imshow("window", working)
-    key = cv2.waitKey(1) & 0xFF
+    key = cv2.waitKey(0) & 0xFF
     if chr(key) == 'r':
         dx = dx+1
     elif chr(key) == 'l':

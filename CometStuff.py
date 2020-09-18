@@ -76,13 +76,15 @@ def loadImage(path,name):
     im = cv2.imread(path)
     img = im.copy()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    totalw = im.shape[1]
+    totalh = im.shape[0]
     ret, bin = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     contours, hierarchy = cv2.findContours(bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     good_contours = []
     for contour in contours:
         area = cv2.contourArea(contour)
         x, y, w, h = cv2.boundingRect(contour)
-        if area > 10 and  (w/h) > 1.7 and (w/h) < 8:
+        if area > 10 and  (w/h) > 1 and (w/h) < 8 and w< totalw/10:
             good_contours.append(contour)
     results = []
     n = 1
@@ -95,7 +97,7 @@ def loadImage(path,name):
     end = time.time()
     print(f'loadImage took {end - start} msec')
     table = np.array(results)
-    np.savetxt(f'{name}_stats.csv',table,delimiter = ",",header="w,h,cometarea,totaltail,percent")
+    np.savetxt(f'{name}_stats.csv',table,delimiter = ",",fmt="%.2f",header="w,h,cometarea,totaltail,percent")
     #cv2.imshow('comets', img)
     cv2.waitKey(0)
 

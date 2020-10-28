@@ -9,7 +9,7 @@ import pathlib
 from skimage.feature import peak_local_max
 from skimage.morphology import watershed
 from scipy import ndimage
-
+import ipyplot
 import matplotlib.pyplot as plt
 from math import  sqrt
 #-8,7,61.5,35.25
@@ -62,16 +62,22 @@ def cometStats(comet, contour, w, h,n,outputdir):
     (x,y,w,h), headcontour, head = headMask(comet)
     #plt.imshow(head)
     diff = cv2.bitwise_and(comet,comet,mask = head)
-    headarea = np.sum(diff)
-    #plt.imshow(diff)
+    foo,coronamask = cv2.threshold(diff, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    diff3 = cv2.bitwise_and(comet,comet,mask = coronamask)
+    headarea = np.sum(diff3)
     p = (cometarea-headarea)/(cometarea)
     c = cv2.cvtColor(comet,cv2.COLOR_GRAY2BGR)
     cv2.drawContours(c,[headcontour],0,(255,0,0),2,8)
-    ret, bin = cv2.threshold(comet, 20, 255, cv2.THRESH_BINARY)
     contours, hierarchy = cv2.findContours(comet, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(c,contours,-1,(0,255,0),2,8)
-    c = cv2.addWeighted(c,0.7,cv2.cvtColor(head,cv2.COLOR_GRAY2BGR),0.3,0)
-    #plt.imshow(c)
+    c = cv2.addWeighted(c,0.7,cv2.cvtColor(diff3,cv2.COLOR_GRAY2BGR),0.3,0)
+
+    f = plt.figure()
+    f.add_subplot(1, 2, 1)
+    plt.imshow(diff)
+    f.add_subplot(1, 2, 2)
+    plt.imshow(diff3)
+    plt.show(block=True)
     #print(w,h,area)
     return (w,h,cometarea, headarea,p)
 
@@ -179,7 +185,7 @@ def headMask(comet):
 
 
 #loadImage("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/Practicecomets.tif")
-loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/PetersImages/drive-download-20201026T203625Z-001")
+loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/PetersImages/onetiff")
 
 
 

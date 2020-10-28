@@ -60,15 +60,18 @@ def cometStats(comet, contour, w, h,n,outputdir):
     #print(f"maxVal = {maxVal}")
     cometarea = np.sum(comet)
     (x,y,w,h), headcontour, head = headMask(comet)
+    #plt.imshow(head)
     diff = cv2.bitwise_and(comet,comet,mask = head)
     headarea = np.sum(diff)
-    p = (cometarea-headarea)/cometarea
+    #plt.imshow(diff)
+    p = (cometarea-headarea)/(cometarea)
     c = cv2.cvtColor(comet,cv2.COLOR_GRAY2BGR)
     cv2.drawContours(c,[headcontour],0,(255,0,0),2,8)
     ret, bin = cv2.threshold(comet, 20, 255, cv2.THRESH_BINARY)
     contours, hierarchy = cv2.findContours(comet, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(c,contours,-1,(0,255,0),2,8)
-    plt.imshow(c)
+    c = cv2.addWeighted(c,0.7,cv2.cvtColor(head,cv2.COLOR_GRAY2BGR),0.3,0)
+    #plt.imshow(c)
     #print(w,h,area)
     return (w,h,cometarea, headarea,p)
 
@@ -102,9 +105,13 @@ def loadImage(path,name):
     for c in good_contours:
         x, y, w, h = cv2.boundingRect(c)
         #img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 1)
-        r = cometStats(gray[y:y+h,x:x+w], contour, w,h,n,outputdir)
-        n = n+1
-        results.append(r)
+        try:
+            r = cometStats(gray[y:y+h,x:x+w], contour, w,h,n,outputdir)
+            n = n+1
+            results.append(r)
+        except ValueError:
+            print("skipping")
+            continue
     end = time.time()
     print(f'loadImage took {end - start} msec')
     table = np.array(results)
@@ -133,9 +140,9 @@ def headMask(comet):
     blur = cv2.GaussianBlur(head, (5, 5), 0)
     tval, thresh = cv2.threshold(blur, 0, 255,
                            cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    print(f'tval={tval}')
+    #print(f'tval={tval}')
     tval, thresh = cv2.threshold(blur,(tval+10),255,cv2.THRESH_BINARY)
-    plt.imshow(thresh)
+    #plt.imshow(thresh)
     kernel = np.ones((5, 5), np.uint8)
     # The first parameter is the original image,
     # kernel is the matrix with which image is
@@ -145,10 +152,10 @@ def headMask(comet):
     img_dilation = cv2.dilate(thresh, kernel, iterations=3)
     img_erosion = cv2.erode(img_dilation, kernel, iterations=4)
     img_expand = cv2.dilate(img_erosion, kernel, iterations=2)
-    img_final = cv2.erode(img_expand,kernel,iterations=)
+    img_final = cv2.erode(img_expand,kernel,iterations=2)
 
 
-    plt.imshow(img_final)
+    #plt.imshow(img_final)
 
     cnts = cv2.findContours(img_final.copy(), cv2.RETR_EXTERNAL,
                                 cv2.CHAIN_APPROX_SIMPLE)
@@ -161,40 +168,18 @@ def headMask(comet):
 
 
     cometarray = np.zeros(comet.shape, dtype=np.uint8)
-    cv2.drawContours(cometarray, headcontour, 0, 255, -1, 8)
-
+    cv2.drawContours(cometarray, [headcontour], 0, (255,255,255), -1)
+    mask_dilation = cv2.dilate(cometarray, kernel, iterations=4)
+    #plt.imshow(cometarray)
     #plt.imshow(dist_transform)
-    return (cv2.boundingRect(headcontour), headcontour, cometarray)
+    return (cv2.boundingRect(headcontour), headcontour, mask_dilation)
 
-def headMask2(c):
-    """ returns (  (x,y,w,h), contour_of_head, mask)"""
-    width = c.shape[1]
-    height = c.shape[0]
-    head = c[0:height-1, 0:height-1]
-    m = np.max(head)
-    foo, t = cv2.threshold(head, 20, 255, cv2.THRESH_BINARY)
-    dist_transform = cv2.distanceTransform(t, cv2.DIST_L2, 5)
-    ret, sure_fg = cv2.threshold(dist_transform, 0.6 * dist_transform.max(), 255, 0)
-    sure_fg = sure_fg.astype(np.uint8)
-    #plt.imshow(sure_fg)
-    #plt.imshow(t)
-    #contours, hierarchy = cv2.findContours(t, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cnts, hierarchy = cv2.findContours(sure_fg, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    sorted_ctrs = sorted(cnts, key=lambda ctr: cv2.boundingRect(ctr)[0])
-    #find largest contour
-    if len(sorted_ctrs) == 0:
-        raise ValueError("no contours found in headMask")
-    headcontour = sorted_ctrs[0]
-    cometarray = np.zeros(c.shape,dtype=np.uint8)
-    cv2.drawContours(cometarray,[headcontour],0,255,-1,8)
-    # return its bounding rectangle
-    #plt.imshow(dist_transform)
-    return (cv2.boundingRect(headcontour), headcontour, cometarray)
+
 
 
 
 #loadImage("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/Practicecomets.tif")
-loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/PetersImages/onetiff")
+loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/PetersImages/drive-download-20201026T203625Z-001")
 
 
 

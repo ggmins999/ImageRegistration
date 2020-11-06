@@ -62,30 +62,62 @@ def cometStats(comet, contour, w, h,n,outputdir):
     (x,y,w,h), headcontour, head = headMask(comet)
     #plt.imshow(head)
     diff = cv2.bitwise_and(comet,comet,mask = head)
+    """if the head is dimmer than body, if the head is smaller and brighter with a dip next to it, 
+     if the center of mass is too far over to the right"""
     foo,coronamask = cv2.threshold(diff, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     diff3 = cv2.bitwise_and(comet,comet,mask = coronamask)
+    mx = momentx(diff3)
+
+
     headarea = np.sum(diff3)
     p = (cometarea-headarea)/(cometarea)
     c = cv2.cvtColor(comet,cv2.COLOR_GRAY2BGR)
+    cv2.circle(c,(int(mx),int((c.shape[0])/2)),5,(255,255,255),2)
     cv2.drawContours(c,[headcontour],0,(255,0,0),2,8)
     contours, hierarchy = cv2.findContours(comet, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(c,contours,-1,(0,255,0),2,8)
     c = cv2.addWeighted(c,0.7,cv2.cvtColor(diff3,cv2.COLOR_GRAY2BGR),0.3,0)
 
     f = plt.figure()
-    f.add_subplot(1, 2, 1)
+    f.add_subplot(1, 3, 1)
     plt.imshow(diff)
-    f.add_subplot(1, 2, 2)
+    f.add_subplot(1, 3, 2)
     plt.imshow(diff3)
+    f.add_subplot(1, 3, 3)
+    plt.imshow(c)
     plt.show(block=True)
     #print(w,h,area)
     return (w,h,cometarea, headarea,p)
 
 
+def momentx(img):
+    totalmass = np.sum(img)
+    mx = 0
+    for x in range(0,img.shape[1]):
+        vslice = np.sum(img[:,x])
+        mx = mx+ x*vslice
+
+    return mx/totalmass
     #cv2.circle(img,center=(maxX+x,midy+y),radius= 5,color= (0,0,255),thickness=2)
     #cv2.imshow("slice",slice)
     #cv2.imshow('contours', img)
     #cv2.waitKey(0)
+
+def findneck(img):
+    maxb = 0
+    maxx = 0
+    h = img.shape[0]
+    midy = h//2
+    HYST = 20
+    for x in range(3, img.shape[1]):
+        vslice = np.sum(img[midy-1:midy+1, x-3:x+3])
+        bright = np.sum(vslice)
+        if bright > maxb:
+            maxb = bright
+            maxx = x
+        elif bright < maxb-HYST:
+            break
+    return maxx
 
 
 
@@ -159,6 +191,9 @@ def headMask(comet):
     img_erosion = cv2.erode(img_dilation, kernel, iterations=4)
     img_expand = cv2.dilate(img_erosion, kernel, iterations=2)
     img_final = cv2.erode(img_expand,kernel,iterations=2)
+    mx = findneck(img_final)
+    # zero out everything to the right of mx in img_final
+    img_final[:,mx:] = 0
 
 
     #plt.imshow(img_final)

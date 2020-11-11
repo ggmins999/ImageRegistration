@@ -191,12 +191,12 @@ def headMask(comet):
     img_erosion = cv2.erode(img_dilation, kernel, iterations=4)
     img_expand = cv2.dilate(img_erosion, kernel, iterations=2)
     img_final = cv2.erode(img_expand,kernel,iterations=2)
-    mx = findneck(img_final)
+    #mx = findneck(img_final)
     # zero out everything to the right of mx in img_final
-    img_final[:,mx:] = 0
+    #img_final[:,mx:] = 0
 
 
-    #plt.imshow(img_final)
+    plt.imshow(img_final)
 
     cnts = cv2.findContours(img_final.copy(), cv2.RETR_EXTERNAL,
                                 cv2.CHAIN_APPROX_SIMPLE)
@@ -211,7 +211,7 @@ def headMask(comet):
     cometarray = np.zeros(comet.shape, dtype=np.uint8)
     cv2.drawContours(cometarray, [headcontour], 0, (255,255,255), -1)
     mask_dilation = cv2.dilate(cometarray, kernel, iterations=4)
-    #plt.imshow(cometarray)
+    plt.imshow(cometarray)
     #plt.imshow(dist_transform)
     return (cv2.boundingRect(headcontour), headcontour, mask_dilation)
 

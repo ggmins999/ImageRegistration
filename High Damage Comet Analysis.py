@@ -78,15 +78,17 @@ def cometStats(comet, contour, w, h,n,outputdir):
     cv2.drawContours(c,contours,-1,(0,255,0),2,8)
     c = cv2.addWeighted(c,0.7,cv2.cvtColor(diff3,cv2.COLOR_GRAY2BGR),0.3,0)
 
-    f = plt.figure()
-    f.add_subplot(1, 3, 1)
-    plt.imshow(diff)
-    f.add_subplot(1, 3, 2)
-    plt.imshow(diff3)
-    f.add_subplot(1, 3, 3)
-    plt.imshow(c)
-    plt.show(block=True)
-    #print(w,h,area)
+
+    if comet_num == showcomet:
+        f = plt.figure()
+        f.add_subplot(1, 3, 1)
+        plt.imshow(diff)
+        f.add_subplot(1, 3, 2)
+        plt.imshow(diff3)
+        f.add_subplot(1, 3, 3)
+        plt.imshow(c)
+        plt.show(block=True)
+        #print(w,h,area)
     return (w,h,cometarea, headarea,p)
 
 
@@ -108,20 +110,22 @@ def findneck(img):
     maxx = 0
     h = img.shape[0]
     midy = h//2
-    HYST = 20
+    HYST = 0.50
     for x in range(3, img.shape[1]):
-        vslice = np.sum(img[midy-1:midy+1, x-3:x+3])
+        vslice = np.sum(img[0:h-1, x-3:x+3])
         bright = np.sum(vslice)
-        if bright > maxb:
+        maxx = x
+        if bright >= maxb:
             maxb = bright
-            maxx = x
-        elif bright < maxb-HYST:
+        elif bright < maxb * HYST:
             break
     return maxx
 
 
-
+showcomet = -1
 def loadImage(path,name):
+    global comet_num
+    global showcomet
     outputdir = path[:-4]
     pathlib.Path(outputdir).mkdir(parents=True, exist_ok=True)
     start = time.time()
@@ -140,12 +144,15 @@ def loadImage(path,name):
             good_contours.append(contour)
     results = []
     n = 1
+    comet_num = n
     for c in good_contours:
         x, y, w, h = cv2.boundingRect(c)
         #img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 1)
         try:
+            print(n)
             r = cometStats(gray[y:y+h,x:x+w], contour, w,h,n,outputdir)
             n = n+1
+            comet_num = n
             results.append(r)
         except ValueError:
             print("skipping")
@@ -191,9 +198,9 @@ def headMask(comet):
     img_erosion = cv2.erode(img_dilation, kernel, iterations=4)
     img_expand = cv2.dilate(img_erosion, kernel, iterations=2)
     img_final = cv2.erode(img_expand,kernel,iterations=2)
-    #mx = findneck(img_final)
+    mx = findneck(img_final)
     # zero out everything to the right of mx in img_final
-    #img_final[:,mx:] = 0
+    img_final[:,mx:] = 0
 
 
     plt.imshow(img_final)

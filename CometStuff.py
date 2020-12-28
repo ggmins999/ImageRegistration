@@ -42,24 +42,19 @@ def sumPixels(img):
     np.sum(img[y1:y2, x1:xNN2, c1:c2])
 
 def cometStats(comet, contour, w, h,n,outputdir):
+    #gets the sliced candidate
     maxX = 0
     maxVal = 0
     midy = int(h/2)
     THRESH = 20
-    comet = np.where(comet < THRESH, 0, comet)
-    for i in range(0,min(w,h)):
-        pixel = comet[midy,i]
-        if pixel >= maxVal:
-            maxVal = pixel
-            maxX = i
+    comet = np.where(comet < THRESH, 0, comet) #turns anything below 20 pixels to black
 
-    maxX = int(h/2)
 
-    pathname = f'{outputdir}/comet{n}.png'
+    pathname = f'{outputdir}/comet{n}.png' #writes number of comet out
     cv2.imwrite(pathname,comet)
     #print(f"maxVal = {maxVal}")
-    cometarea = np.sum(comet)
-    (x,y,w,h), headcontour, head = headMask(comet)
+    cometarea = np.sum(comet) #gets area of whole comet
+    (x,y,w,h), headcontour, head = headMask(comet) #finds head
     #plt.imshow(head)
     diff = cv2.bitwise_and(comet,comet,mask = head)
     """if the head is dimmer than body, if the head is smaller and brighter with a dip next to it, 
@@ -78,14 +73,14 @@ def cometStats(comet, contour, w, h,n,outputdir):
     cv2.drawContours(c,contours,-1,(0,255,0),2,8)
     c = cv2.addWeighted(c,0.7,cv2.cvtColor(diff3,cv2.COLOR_GRAY2BGR),0.3,0)
 
-    f = plt.figure()
-    f.add_subplot(1, 3, 1)
-    plt.imshow(diff)
-    f.add_subplot(1, 3, 2)
-    plt.imshow(diff3)
-    f.add_subplot(1, 3, 3)
-    plt.imshow(c)
-    plt.show(block=True)
+   # f = plt.figure()
+    #f.add_subplot(1, 3, 1)
+    #plt.imshow(diff)
+    #f.add_subplot(1, 3, 2)
+   # plt.imshow(diff3)
+   ## f.add_subplot(1, 3, 3)
+   # plt.imshow(c)
+    #plt.show(block=True)
     #print(w,h,area)
     return (w,h,cometarea, headarea,p)
 
@@ -127,20 +122,23 @@ def loadImage(path,name):
     start = time.time()
     im = cv2.imread(path)
     img = im.copy()
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    totalw = im.shape[1]
-    totalh = im.shape[0]
-    ret, bin = cv2.threshold(gray, 20, 255, cv2.THRESH_BINARY)
-    contours, hierarchy = cv2.findContours(bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #makes a greyscale copy of the image
+    totalw = im.shape[1] #gets width of image
+    totalh = im.shape[0] #gets heigh of image
+    ret, bin = cv2.threshold(gray, 20, 255, cv2.THRESH_BINARY) #uses a fixed threshold taking everything brighter than 20 pixels is a part of the foreground
+    contours, hierarchy = cv2.findContours(bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) #find contours
     good_contours = []
-    for contour in contours:
+    for contour in contours: #loops over all the contours and sorts what we have specified to be a comet
         area = cv2.contourArea(contour)
         x, y, w, h = cv2.boundingRect(contour)
-        if area > 1000 and  (w/h) > 1 and (w/h) < 8 and w< totalw/10 and area < 50000:
+        if area > 100 and  (w/h) > 0.25 and (w/h) < 8 and w< totalw/10 and area < 50000: # finds canditates specifies bounding box, has to be square or rectangular (accounts for low damage comets)
             good_contours.append(contour)
+            #print(x,y,w,h,area)
     results = []
     n = 1
-    for c in good_contours:
+    total = cv2.drawContours(img.copy(),good_contours,-1,(0,0,255),3)
+    cv2.imwrite("total.png",total)
+    for c in good_contours: #for candidates calls cometstats which are the equations to find percent damage, length , width etc
         x, y, w, h = cv2.boundingRect(c)
         #img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 1)
         try:
@@ -170,48 +168,49 @@ def loadWells(path):
 
 
 def headMask(comet):
+    #finds the head region
     """ returns (  (x,y,w,h), contour_of_head, mask)"""
     width = comet.shape[1]
     height = comet.shape[0]
-    head = comet[0:height-1, 0:height-1]
+    head = comet[0:height-1, 0:height-1] #takes a square region of that left most side
     m = np.max(head)
     blur = cv2.GaussianBlur(head, (5, 5), 0)
     tval, thresh = cv2.threshold(blur, 0, 255,
-                           cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+                           cv2.THRESH_BINARY | cv2.THRESH_OTSU) #adaptive thresholding of the head region to find a threhsold val that discrminates between black and white
     #print(f'tval={tval}')
-    tval, thresh = cv2.threshold(blur,(tval+10),255,cv2.THRESH_BINARY)
+    tval, thresh = cv2.threshold(blur,(tval+10),255,cv2.THRESH_BINARY) #thresholds a bit above that
     #plt.imshow(thresh)
-    kernel = np.ones((5, 5), np.uint8)
+    kernel = np.ones((5, 5), np.uint8) #creates kernel for erosions and dilations
     # The first parameter is the original image,
     # kernel is the matrix with which image is
     # convolved and third parameter is the number
     # of iterations, which will determine how much
     # you want to erode/dilate a given image.
-    img_dilation = cv2.dilate(thresh, kernel, iterations=3)
-    img_erosion = cv2.erode(img_dilation, kernel, iterations=4)
+    img_dilation = cv2.dilate(thresh, kernel, iterations=3) #merges gaps 3 times
+    img_erosion = cv2.erode(img_dilation, kernel, iterations=4) #erodes back to original size 4 times
     img_expand = cv2.dilate(img_erosion, kernel, iterations=2)
-    img_final = cv2.erode(img_expand,kernel,iterations=2)
+    img_final = cv2.erode(img_expand,kernel,iterations=2) #tries to erode away neck
     #mx = findneck(img_final)
     # zero out everything to the right of mx in img_final
     #img_final[:,mx:] = 0
 
 
-    plt.imshow(img_final)
+    #plt.imshow(img_final)
 
     cnts = cv2.findContours(img_final.copy(), cv2.RETR_EXTERNAL,
-                                cv2.CHAIN_APPROX_SIMPLE)
+                                cv2.CHAIN_APPROX_SIMPLE) #calls find contours again to find the head once crap has been worked away
     cnts = imutils.grab_contours(cnts)
     sorted_ctrs = sorted(cnts, key=lambda ctr: cv2.boundingRect(ctr)[0])
-    # find largest contour
+    # find left most contour which will be assumed to be the head
     if len(sorted_ctrs) == 0:
         raise ValueError("no contours found in headMask")
     headcontour = sorted_ctrs[0]
 
 
     cometarray = np.zeros(comet.shape, dtype=np.uint8)
-    cv2.drawContours(cometarray, [headcontour], 0, (255,255,255), -1)
-    mask_dilation = cv2.dilate(cometarray, kernel, iterations=4)
-    plt.imshow(cometarray)
+    cv2.drawContours(cometarray, [headcontour], 0, (255,255,255), -1) #draws mask (filled contour)
+    mask_dilation = cv2.dilate(cometarray, kernel, iterations=4) #sanity check dilate make sure it covers a corona region
+    #plt.imshow(cometarray)
     #plt.imshow(dist_transform)
     return (cv2.boundingRect(headcontour), headcontour, mask_dilation)
 
@@ -220,7 +219,7 @@ def headMask(comet):
 
 
 #loadImage("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/Practicecomets.tif")
-loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/PetersImages/onetiff")
+loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/Low Damage C6")
 
 
 

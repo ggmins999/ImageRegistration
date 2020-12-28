@@ -227,7 +227,7 @@ def headMask(comet):
 
 
 #loadImage("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/Practicecomets.tif")
-loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/PetersImages/onetiff")
+loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Blinded" )
 
 
 

@@ -6,10 +6,29 @@ import cv2
 import imutils
 
 
-# import matplotlib.pyplt as plt
+import matplotlib.pyplot as plt
 
 
+def binarize(img):
+    imgcopy = img.copy()
+    # convert the image to grayscale
+    gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
+    # convert the grayscale image to binary image
+    # ret,thresh = cv2.threshold(gray_image,127,255,cv2.THRESH_BINARY_INV)
+    otsu_threshold, thresh = cv2.threshold(
+        gray_image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU, )
+    print("Obtained threshold: ", otsu_threshold)
+
+    kernel = np.ones((5, 5), np.uint8)  # creates kernel for erosions and dilations
+    # The first parameter is the original image,
+    # kernel is the matrix with which image is
+    # convolved and third parameter is the number
+    # of iterations, which will determine how much
+    # you want to erode/dilate a given image.
+    img_dilation = cv2.dilate(thresh, kernel, iterations=5)  # merges gaps 3 times
+    thresh = cv2.erode(img_dilation, kernel, iterations=5)  # erodes back to original size 4 times
+    return thresh
 
 def find_centroid(img, label, color):
     imgcopy = img.copy()
@@ -36,18 +55,31 @@ def find_centroid(img, label, color):
     # find contours in the binary image
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # find contours
     print(f' found {len(contours)} contours')
+    cv2.drawContours(imgcopy,contours,-1,(255,0,0),3)
+    plt.imshow(imgcopy)
+    sortedcontours= sorted(contours,key=lambda x: cv2.contourArea(x),reverse = True)
+    print([ cv2.contourArea(c) for c in sortedcontours])
+    assert len(contours) >0,'should just be 1 contour'
     cX, cY = 0, 0
-    for c in contours:
+    c = contours[0]
         # calculate moments for each contour
-        M = cv2.moments(c)
+    M = cv2.moments(c)
 
-        if M["m00"] != 0:
-            cX = int(M["m10"] / M["m00"])
-            cY = int(M["m01"] / M["m00"])
-            cv2.circle(imgcopy, (cX, cY), 10, color, -1)
-            cv2.putText(imgcopy, label, (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+    if M["m00"] != 0:
+        cX = int(M["m10"] / M["m00"])
+        cY = int(M["m01"] / M["m00"])
+        cv2.circle(imgcopy, (cX, cY), 10, color, -1)
+        cv2.putText(imgcopy, label, (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
     cv2.imwrite("centroid.jpg", imgcopy)
     return ( cX, cY, imgcopy)
+
+#def matchby_template(before,after):
+    # find contours in the binary image
+   # bbefore = binarize(before)
+    #bafter = binarize(after)
+   # result = cv2.matchTemplate(bafter,bbefore,cv2.TM_CCOEFF)
+    #(_, _, minLoc, maxLoc) = cv2.minMaxLoc(result)
+    print(minLoc, maxLoc)
 
 
 
@@ -80,7 +112,8 @@ def find_offset(pathb, patha):
     afterimg[:, :, 2] = 0
     v = cv2.addWeighted(translated, 0.5, annotated_after, 0.5, 0)
     cv2.imwrite('overlay.jpg', v)
+    #matchby_template(beforeimg,afterimg)
 
+find_offset('/Users/gigiminsky/Google Drive/PyCharm Projects/C6Before/C6Before.tif',
+            '/Users/gigiminsky/Google Drive/PyCharm Projects/C6After/C6After.tif')
 
-find_offset('/Users/gigiminsky/Google Drive/B4Before/B4before.tif',
-            '/Users/gigiminsky/Google Drive/B4After/B4after.tif')

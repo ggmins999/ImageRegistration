@@ -1,11 +1,10 @@
 
 import numpy as np
+import os
 import time
-import icp
 import cv2
 import imutils
-
-
+import pathlib
 import matplotlib.pyplot as plt
 
 
@@ -56,12 +55,12 @@ def find_centroid(img, label, color):
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # find contours
     print(f' found {len(contours)} contours')
     cv2.drawContours(imgcopy,contours,-1,(255,0,0),3)
-    plt.imshow(imgcopy)
+    #plt.imshow(imgcopy)
     sortedcontours= sorted(contours,key=lambda x: cv2.contourArea(x),reverse = True)
     print([ cv2.contourArea(c) for c in sortedcontours])
     assert len(contours) >0,'should just be 1 contour'
     cX, cY = 0, 0
-    c = contours[0]
+    c = sortedcontours[0]
         # calculate moments for each contour
     M = cv2.moments(c)
 
@@ -86,20 +85,12 @@ def find_centroid(img, label, color):
 #    load_images('/Users/gigiminsky/Google Drive/B7Before/B7before.tif',
 #    # '/Users/gigiminsky/Google Drive/B7After/B7after.tif')
 
-def find_offset(pathb, patha):
-    beforeimg = cv2.imread(pathb)
-    afterimg = cv2.imread(patha)
-    minwidth = int(min(beforeimg.shape[1], afterimg.shape[1]))
-    minheight = int(min(beforeimg.shape[0], afterimg.shape[0]))
-    beforeimg = beforeimg[0:minheight, 0:minwidth]
-    afterimg = afterimg[0:minheight, 0:minwidth]
+def find_offset(beforeimg,afterimg):
 
     c1x, c1y, annotated_before = find_centroid(beforeimg, 'BEFORE', (255,255,255))
     cv2.imwrite('annotated_before.jpg', annotated_before)
     c2x, c2y, annotated_after = find_centroid(afterimg, 'AFTER', (255,255,255))
     cv2.imwrite('annotated_after.jpg', annotated_after)
-
-
 
 
     dx = c2x-c1x
@@ -112,8 +103,73 @@ def find_offset(pathb, patha):
     afterimg[:, :, 2] = 0
     v = cv2.addWeighted(translated, 0.5, annotated_after, 0.5, 0)
     cv2.imwrite('overlay.jpg', v)
+    return (dx,dy)
     #matchby_template(beforeimg,afterimg)
 
-find_offset('/Users/gigiminsky/Google Drive/PyCharm Projects/C6Before/C6Before.tif',
-            '/Users/gigiminsky/Google Drive/PyCharm Projects/C6After/C6After.tif')
+
+def find_correct_comet(pathb,patha,outputdir):
+    beforeimg = cv2.imread(pathb)
+    afterimg = cv2.imread(patha)
+    minwidth = int(min(beforeimg.shape[1], afterimg.shape[1]))
+    minheight = int(min(beforeimg.shape[0], afterimg.shape[0]))
+    beforeimg = beforeimg[0:minheight, 0:minwidth]
+    afterimg = afterimg[0:minheight, 0:minwidth]
+    dx,dy = find_offset(beforeimg.copy(),afterimg.copy())
+
+    pathlib.Path(outputdir).mkdir(parents=True, exist_ok=True)
+    gray = cv2.cvtColor(afterimg.copy(), cv2.COLOR_BGR2GRAY)  # makes a greyscale copy of the image
+    totalw = gray.shape[1]  # gets width of image
+    totalh = gray.shape[0]  # gets heigh of image
+    ret, bin = cv2.threshold(gray, 20, 255,
+                             cv2.THRESH_BINARY)  # uses a fixed threshold taking everything brighter than 20 pixels is a part of the foreground
+    contours, hierarchy = cv2.findContours(bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # find contours
+    good_contours = []
+    for contour in contours:  # loops over all the contours and sorts what we have specified to be a comet
+        area = cv2.contourArea(contour)
+        x, y, w, h = cv2.boundingRect(contour)
+        if area > 100 and (w / h) > 0.25 and (
+                w / h) < 8 and w < totalw / 10 and area < 50000:  # finds canditates specifies bounding box, has to be square or rectangular (accounts for low damage comets)
+            good_contours.append(contour)
+            # print(x,y,w,h,area)
+    n = 0
+    html = """<title>before/after slices</title>"""
+    html += f'dx={dx},dy={dy}'
+    html += """
+            <table border=1> <th>point</th><th>before<th>after</tr>\n"""
+
+    for c in good_contours:  # for candidates calls cometstats which are the equations to find percent damage, length , width etc
+        n = n + 1
+        x, y, w, h = cv2.boundingRect(c)
+        aftercomet = gray[y:y + h, x:x + w]
+        padding = 50
+        beforecomet = beforeimg[y-dy-padding:y-dy + h+padding, x-dx-padding:x-dx + w+padding]
+        afterfile = os.path.join(outputdir,f'comet{n}.png')
+        beforefile = os.path.join(outputdir,f'beforecomet{n}.png')
+        if beforecomet.shape[0] == 0 or beforecomet.shape[1] == 0:
+            print(f'found zero dim beforecomet {n}  {beforecomet.shape}')
+            continue
+        aftercomet = cv2.cvtColor(aftercomet,cv2.COLOR_GRAY2BGR)
+        aftercomet[:,:,0] = 0
+        aftercomet[:,:,2] = 0
+        beforecomet[:,:,0] = 0
+        beforecomet[:,:,1] = 0
+
+        cv2.imwrite(afterfile,aftercomet)
+        cv2.imwrite(beforefile,beforecomet)
+        cv2.putText(beforeimg,f'{n}',(x-dx,y-dy),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
+        cv2.putText(afterimg,f'{n}',(x,y),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
+
+        html = html + f'\n<tr><td>Point{n}: <td> <img src=beforecomet{n}.png> <td><img src=comet{n}.png></tr>\n'
+        #print(n)
+
+    html = html + '</table>'
+
+    with open(os.path.join(outputdir,'index.html'), 'w') as out_file:
+        out_file.write(html)
+    cv2.imwrite(os.path.join(outputdir,"annotatebefore.png"),beforeimg)
+    cv2.imwrite(os.path.join(outputdir, "annotateafter.png"), afterimg)
+
+find_correct_comet('/Users/gigiminsky/Google Drive/PyCharm Projects/C6Before/C6Before.tif',
+                   '/Users/gigiminsky/Google Drive/PyCharm Projects/C6After/C6After.tif',
+                   '/Users/gigiminsky/Google Drive/PyCharm Projects/C6Before/C6Results')
 

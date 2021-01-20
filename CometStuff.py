@@ -219,7 +219,7 @@ def headMask(comet):
 
 
 #loadImage("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/Practicecomets.tif")
-loadWells("/Users/gigiminsky/Google Drive/PyCharm Projects/Low Damage C6")
+loadWells("/Users/gigiminsky/Google Drive/C9TwoTypes")
 
 
 

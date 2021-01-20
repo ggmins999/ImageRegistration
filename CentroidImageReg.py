@@ -8,6 +8,7 @@ import pathlib
 import matplotlib.pyplot as plt
 
 
+
 def binarize(img):
     imgcopy = img.copy()
     # convert the image to grayscale
@@ -86,7 +87,6 @@ def find_centroid(img, label, color):
 #    # '/Users/gigiminsky/Google Drive/B7After/B7after.tif')
 
 def find_offset(beforeimg,afterimg):
-
     c1x, c1y, annotated_before = find_centroid(beforeimg, 'BEFORE', (255,255,255))
     cv2.imwrite('annotated_before.jpg', annotated_before)
     c2x, c2y, annotated_after = find_centroid(afterimg, 'AFTER', (255,255,255))
@@ -136,7 +136,8 @@ def find_correct_comet(pathb,patha,outputdir):
     html += f'dx={dx},dy={dy}'
     html += """
             <table border=1> <th>point</th><th>before<th>after</tr>\n"""
-
+    annotatedbefore = beforeimg.copy()
+    annotatedafter = afterimg.copy()
     for c in good_contours:  # for candidates calls cometstats which are the equations to find percent damage, length , width etc
         n = n + 1
         x, y, w, h = cv2.boundingRect(c)
@@ -149,15 +150,15 @@ def find_correct_comet(pathb,patha,outputdir):
             print(f'found zero dim beforecomet {n}  {beforecomet.shape}')
             continue
         aftercomet = cv2.cvtColor(aftercomet,cv2.COLOR_GRAY2BGR)
-        aftercomet[:,:,0] = 0
-        aftercomet[:,:,2] = 0
-        beforecomet[:,:,0] = 0
-        beforecomet[:,:,1] = 0
+       # aftercomet[:,:,0] = 0
+       # aftercomet[:,:,2] = 0
+       ## beforecomet[:,:,0] = 0
+       # beforecomet[:,:,1] = 0
 
         cv2.imwrite(afterfile,aftercomet)
         cv2.imwrite(beforefile,beforecomet)
-        cv2.putText(beforeimg,f'{n}',(x-dx,y-dy),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
-        cv2.putText(afterimg,f'{n}',(x,y),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
+        cv2.putText(annotatedbefore,f'{n}',(x-dx,y-dy),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
+        cv2.putText(annotatedafter,f'{n}',(x,y),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
 
         html = html + f'\n<tr><td>Point{n}: <td> <img src=beforecomet{n}.png> <td><img src=comet{n}.png></tr>\n'
         #print(n)
@@ -166,10 +167,37 @@ def find_correct_comet(pathb,patha,outputdir):
 
     with open(os.path.join(outputdir,'index.html'), 'w') as out_file:
         out_file.write(html)
-    cv2.imwrite(os.path.join(outputdir,"annotatebefore.png"),beforeimg)
-    cv2.imwrite(os.path.join(outputdir, "annotateafter.png"), afterimg)
+    cv2.imwrite(os.path.join(outputdir,"annotatebefore.png"),annotatedbefore)
+    cv2.imwrite(os.path.join(outputdir, "annotateafter.png"), annotatedafter)
 
-find_correct_comet('/Users/gigiminsky/Google Drive/PyCharm Projects/C6Before/C6Before.tif',
-                   '/Users/gigiminsky/Google Drive/PyCharm Projects/C6After/C6After.tif',
-                   '/Users/gigiminsky/Google Drive/PyCharm Projects/C6Before/C6Results')
+def match_images(bdir,adir,outputdir):
+    afterfiles = os.scandir(adir)
+    # List all files and diretories
+    # in the specified path
+    print("Files and Directories in '% s':" % adir)
+    for afterentry in afterfiles:
+        if afterentry.is_file():
+            parts = afterentry.name.split(".")
+            if len(parts) > 1 and parts[-1] in ['tif', 'tiff', 'jpg', 'png', 'jpeg']:
+                filename = afterentry.name
+                firsttwo = filename[0:2]
+                bpath = find_file_prefix(bdir,firsttwo)
+                resultdir = os.path.join(outputdir,os.path.splitext(filename)[0])
+                print(resultdir)
+                find_correct_comet(bpath,afterentry.path,resultdir)
 
+
+def find_file_prefix(folder,prefix):
+    entries = os.scandir(folder)
+    for entry in entries:
+        if entry.is_file() and entry.name[0:2] == prefix:
+            return entry.path
+    return None
+
+
+#find_correct_comet('/Users/gigiminsky/Downloads/C10Before.tif',
+                  #'/Users/gigiminsky/Downloads/C10After.tif',
+                   #'/Users/gigiminsky/Google Drive/PyCharm Projects/C10Results')
+
+match_images('/Users/gigiminsky/Google Drive/Pycharm Projects/BatchBeforeTest','/Users/gigiminsky/Google Drive/Pycharm Projects/BatchAfterTest',
+             '/Users/gigiminsky/Google Drive/Pycharm Projects/TestResults')

@@ -41,48 +41,9 @@ k = cv2.imread("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistratio
 def sumPixels(img):
     np.sum(img[y1:y2, x1:xNN2, c1:c2])
 
-def cometStats(comet, contour, w, h,n,outputdir):
-    #gets the sliced candidate
-    maxX = 0
-    maxVal = 0
-    midy = int(h/2)
-    THRESH = 20
-    comet = np.where(comet < THRESH, 0, comet) #turns anything below 20 pixels to black
-
-
+def writeComet(comet,n,outputdir):
     pathname = f'{outputdir}/comet{n}.png' #writes number of comet out
     cv2.imwrite(pathname,comet)
-    #print(f"maxVal = {maxVal}")
-    cometarea = np.sum(comet) #gets area of whole comet
-    (x,y,w,h), headcontour, head = headMask(comet) #finds head
-    #plt.imshow(head)
-    diff = cv2.bitwise_and(comet,comet,mask = head)
-    """if the head is dimmer than body, if the head is smaller and brighter with a dip next to it, 
-     if the center of mass is too far over to the right"""
-    foo,coronamask = cv2.threshold(diff, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    diff3 = cv2.bitwise_and(comet,comet,mask = coronamask)
-    mx = momentx(diff3)
-
-
-    headarea = np.sum(diff3)
-    p = (cometarea-headarea)/(cometarea)
-    c = cv2.cvtColor(comet,cv2.COLOR_GRAY2BGR)
-    cv2.circle(c,(int(mx),int((c.shape[0])/2)),5,(255,255,255),2)
-    cv2.drawContours(c,[headcontour],0,(255,0,0),2,8)
-    contours, hierarchy = cv2.findContours(comet, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(c,contours,-1,(0,255,0),2,8)
-    c = cv2.addWeighted(c,0.7,cv2.cvtColor(diff3,cv2.COLOR_GRAY2BGR),0.3,0)
-
-   # f = plt.figure()
-    #f.add_subplot(1, 3, 1)
-    #plt.imshow(diff)
-    #f.add_subplot(1, 3, 2)
-   # plt.imshow(diff3)
-   ## f.add_subplot(1, 3, 3)
-   # plt.imshow(c)
-    #plt.show(block=True)
-    #print(w,h,area)
-    return (w,h,cometarea, headarea,p)
 
 
 def momentx(img):
@@ -125,15 +86,29 @@ def loadImage(path,name):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #makes a greyscale copy of the image
     totalw = im.shape[1] #gets width of image
     totalh = im.shape[0] #gets heigh of image
-    ret, bin = cv2.threshold(gray, 20, 255, cv2.THRESH_BINARY) #uses a fixed threshold taking everything brighter than 20 pixels is a part of the foreground
+    centerx = totalw//2
+    centery = totalh//2
+    thresh, bin = cv2.threshold(gray[centery-250:centery+250,centerx-250:centerx+250], 0,255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    ret, bin = cv2.threshold(gray, thresh, 255, cv2.THRESH_BINARY)#uses a fixed threshold taking everything brighter than 20 pixels is a part of the foreground
+    print(thresh)
+    #cv2.imshow("window",bin)
+    #cv2.waitKey(0)
     contours, hierarchy = cv2.findContours(bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) #find contours
     good_contours = []
-    for contour in contours: #loops over all the contours and sorts what we have specified to be a comet
+    for contour in contours:#loops over all the contours and sorts what we have specified to be a comet
         area = cv2.contourArea(contour)
         x, y, w, h = cv2.boundingRect(contour)
-        if area > 100 and  (w/h) > 0.25 and (w/h) < 8 and w< totalw/10 and area < 50000: # finds canditates specifies bounding box, has to be square or rectangular (accounts for low damage comets)
+        if w < 5 or h < 5:
+            continue
+        mycomet = bin[y:y+h,x:x+w]
+        if area > 25 and (w/h) > 0.5 and (w/h) < 8 and w< totalw/10 and area < 50000 and w>1 and h>1: # finds canditates specifies bounding box, has to be square or rectangular (accounts for low damage comets)
             good_contours.append(contour)
-            #print(x,y,w,h,area)
+            print("good_contours",x,y,w,h,area)
+        else:
+            print("bad",w/h,area)
+       # cv2.imshow("window", mycomet)
+        #cv2.waitKey(0)
+    print(f'number of contours found = {len(good_contours)}')
     results = []
     n = 1
     total = cv2.drawContours(img.copy(),good_contours,-1,(0,0,255),3)
@@ -142,11 +117,10 @@ def loadImage(path,name):
         x, y, w, h = cv2.boundingRect(c)
         #img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 1)
         try:
-            r = cometStats(gray[y:y+h,x:x+w], contour, w,h,n,outputdir)
+            writeComet(gray[y:y+h,x:x+w], n,outputdir)
             n = n+1
-            results.append(r)
-        except ValueError:
-            print("skipping")
+        except ValueError as error:
+            print("skipping",error)
             continue
     end = time.time()
     print(f'loadImage took {end - start} msec')
@@ -219,7 +193,7 @@ def headMask(comet):
 
 
 #loadImage("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/Practicecomets.tif")
-loadWells("/Users/gigiminsky/Google Drive/C9TwoTypes")
+loadWells("/Users/gigiminsky/Downloads/G2enzym")
 
 
 

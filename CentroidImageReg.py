@@ -199,5 +199,5 @@ def find_file_prefix(folder,prefix):
                   #'/Users/gigiminsky/Downloads/C10After.tif',
                    #'/Users/gigiminsky/Google Drive/PyCharm Projects/C10Results')
 
-match_images('/Users/gigiminsky/Google Drive/Pycharm Projects/BatchBeforeTest','/Users/gigiminsky/Google Drive/Pycharm Projects/BatchAfterTest',
-             '/Users/gigiminsky/Google Drive/Pycharm Projects/TestResults')
+match_images('/Users/gigiminsky/Google Drive/PyCharm Projects/BatchBeforeTest','/Users/gigiminsky/Google Drive/PyCharm Projects/BatchAfterTest',
+             '/Users/gigiminsky/Google Drive/PyCharm Projects/TestResults')

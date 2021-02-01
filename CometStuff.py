@@ -1,18 +1,11 @@
 #import the necessary packages
 import numpy as np
-import argparse
 import imutils
 import cv2
 import os
 import time
 import pathlib
-from skimage.feature import peak_local_max
-from skimage.morphology import watershed
-from scipy import ndimage
-import ipyplot
-import matplotlib.pyplot as plt
-from math import  sqrt
-#-8,7,61.5,35.25
+
 
 
 
@@ -36,7 +29,7 @@ def s(im=None):
 
 
 
-k = cv2.imread("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/comet1.png")
+#k = cv2.imread("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/comet1.png")
 
 def sumPixels(img):
     np.sum(img[y1:y2, x1:xNN2, c1:c2])
@@ -44,36 +37,6 @@ def sumPixels(img):
 def writeComet(comet,n,outputdir):
     pathname = f'{outputdir}/comet{n}.png' #writes number of comet out
     cv2.imwrite(pathname,comet)
-
-
-def momentx(img):
-    totalmass = np.sum(img)
-    mx = 0
-    for x in range(0,img.shape[1]):
-        vslice = np.sum(img[:,x])
-        mx = mx+ x*vslice
-
-    return mx/totalmass
-    #cv2.circle(img,center=(maxX+x,midy+y),radius= 5,color= (0,0,255),thickness=2)
-    #cv2.imshow("slice",slice)
-    #cv2.imshow('contours', img)
-    #cv2.waitKey(0)
-
-def findneck(img):
-    maxb = 0
-    maxx = 0
-    h = img.shape[0]
-    midy = h//2
-    HYST = 20
-    for x in range(3, img.shape[1]):
-        vslice = np.sum(img[midy-1:midy+1, x-3:x+3])
-        bright = np.sum(vslice)
-        if bright > maxb:
-            maxb = bright
-            maxx = x
-        elif bright < maxb-HYST:
-            break
-    return maxx
 
 
 
@@ -193,7 +156,7 @@ def headMask(comet):
 
 
 #loadImage("/Users/gigiminsky/Google Drive/PyCharm Projects/ImageRegistration/Images/Practicecomets.tif")
-loadWells("/Users/gigiminsky/Downloads/G2enzym")
+loadWells("/Users/gigiminsky/Downloads/C4test")
 
 
 

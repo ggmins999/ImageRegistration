@@ -1,0 +1,62 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          7.600000000000001,
+          4.0
+        ],
+        [
+          12.0,
+          5.5
+        ],
+        [
+          15.399999999999999,
+          8.600000000000001
+        ],
+        [
+          16.4,
+          16.1
+        ],
+        [
+          12.899999999999999,
+          21.200000000000003
+        ],
+        [
+          7.100000000000001,
+          22.700000000000003
+        ],
+        [
+          2.6000000000000014,
+          21.6
+        ],
+        [
+          0.1999999999999993,
+          14.5
+        ],
+        [
+          1.5,
+          7.600000000000001
+        ],
+        [
+          4.5,
+          5.100000000000001
+        ],
+        [
+          6.899999999999999,
+          5.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "High_comet103.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAAEEAAAAdCAAAAADQ0F4VAAACpUlEQVR4nI2VQZYbNxBDP0BqkgNobN//eB5dQGoRyIKtJHaex+lFv150/VesAkDx+XPFAIogKrf//KHPiiWBoQKVQujPlF8R3iUkhCtqoK1KoKG33xCuFqNGklRR3BJFhLY0Hz8RrnMMuo6PXW9pVEZGqqDQIhJIS9Pc/k34+jbGUNdxrEqWhjrwOBusqkbQtiVtl9Lv/xC+XcYYY5Dn4wi2jSTvOVQnotAobduGvNoQfHsbmr54cBz3VcmWLSoXVENJUTnL1TRJ+wFM3o2sMf5QcLRk2RZCegGCRYkCwlEFhOsNJkjy5c/LrMbxRB22qSyQ6qoyFNVxaVHnE9fx+wcTAWO8zdHOXBINjViStDdRQWOWGFGLRHBGWAUjsKfA1hgeA8VYNqIUW7LRtK1GFpIlkHRlYo1h2lHVlkoH7lCJa1EgViqi4YYRtxUZBL/jYTdgN0i0ISRFiBTJYwtj7+U1Y4F8tWx3UUspDJJ2pS/9QFHaIKS0tKLsAQlPTMTSOlyNZ1K6BqGu1Kh7hfT1oSan35VmEi09q3tnOI7HM9TLChELRwiFqmVrCqlFbYU088TP6ayjWffHPacRjONtjBJD0q1KBW1tJYD4MuecvjDnOu6PZ2UNsX0p11uWUbs7CTRtSJN2Cb6+zctgmuf9cbQe0q6VhN16Z0QrWkj2WVaahgltFs5a9/v6flUrjTq7jwbtg+2Q0EItKd1DuU3I0iKP9ThucIProE5lRnQ6TEVBZa8m1VMtzW0nzBfTV2CcKWfEzomtH1CLOJ3eNk3T26+S9ipJnCBtLUrxudS2aXdafpL278gYSTUIVVuiJ4H09jkBrjK7Ce9M2TmltIQzaz8lnJ1IirctHESbwmtuvyXAFSH2i9cx+PvC+B+EF4dtEPHjvfcXqbYZiUgvxvEAAAAASUVORK5CYII=",
+  "imageHeight": 29,
+  "imageWidth": 65
+}

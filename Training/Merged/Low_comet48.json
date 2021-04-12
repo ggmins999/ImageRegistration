@@ -1,0 +1,74 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          12.299999999999997,
+          1.6000000000000014
+        ],
+        [
+          17.6,
+          3.3999999999999986
+        ],
+        [
+          19.9,
+          6.0
+        ],
+        [
+          20.5,
+          10.700000000000003
+        ],
+        [
+          20.5,
+          12.399999999999999
+        ],
+        [
+          18.700000000000003,
+          14.899999999999999
+        ],
+        [
+          14.5,
+          16.700000000000003
+        ],
+        [
+          8.899999999999999,
+          16.299999999999997
+        ],
+        [
+          6.700000000000003,
+          15.100000000000001
+        ],
+        [
+          3.6000000000000014,
+          12.5
+        ],
+        [
+          2.1000000000000014,
+          9.200000000000003
+        ],
+        [
+          2.8999999999999986,
+          6.0
+        ],
+        [
+          4.200000000000003,
+          3.700000000000003
+        ],
+        [
+          6.100000000000001,
+          2.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet48.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABoAAAAUCAAAAAC2K3JiAAABhElEQVR4nGXRO4/TQAAE4Nn1Ok68dmwfcWyHQ1wDEiX/v6GkRKIC6QoOEud1iR2/vS+KXE5CTDf6uhkCAEgZYURIopXBES8hAFKXz6jsezVhVCoh/lyJAatgmdjNUViUeQt0TTvp8iul0buHpJQzCeoE8WJcX8rCbAGwmN/dv3dt7fBOudHi3nZzj6jVBmATHiSreeXVRTuy8E28iH+uxUizHMyaBcssMpfTrhSzZRQusrGaV9CrDWNT7t+9NYVDfcvlfuQj3Zz54AgwQmxIwxzfGWHbYTYdcj53u4YsmejLy5mnvkuMdi0fcIwlQCxGmGyL0ymxotsGkGUnNYw2VPWXvNSzV8HxUAxCGAW2c8rjc6dfZfj2u5ZCSr1n6OtNsEo+3OjL921RDX0rwbCn1iM9f/6UAcDT18fd86Wr634LBmyJkuenHx/5pF7/2rVVWTVNr66nIPGCeRhyW8iqFk3Xt8NweCEgmzqeZzS0GMUguv3tSgBAPKGUKWMJoQ74P/E/7S8vkMR1e/igCQAAAABJRU5ErkJggg==",
+  "imageHeight": 20,
+  "imageWidth": 26
+}

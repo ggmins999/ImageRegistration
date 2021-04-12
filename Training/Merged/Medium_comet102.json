@@ -1,0 +1,70 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          9.600000000000001,
+          4.899999999999999
+        ],
+        [
+          13.200000000000003,
+          5.0
+        ],
+        [
+          15.899999999999999,
+          5.5
+        ],
+        [
+          18.799999999999997,
+          7.700000000000003
+        ],
+        [
+          19.299999999999997,
+          11.600000000000001
+        ],
+        [
+          18.799999999999997,
+          14.899999999999999
+        ],
+        [
+          17.5,
+          18.1
+        ],
+        [
+          15.399999999999999,
+          19.799999999999997
+        ],
+        [
+          9.100000000000001,
+          20.6
+        ],
+        [
+          3.5,
+          18.299999999999997
+        ],
+        [
+          1.6000000000000014,
+          14.399999999999999
+        ],
+        [
+          2.0,
+          8.700000000000003
+        ],
+        [
+          5.199999999999999,
+          5.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet102.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAAC0AAAAWCAAAAABxzEooAAACB0lEQVR4nHWT224bRxBEq3pmyKVFyYFNMvL//1wi0oEiXnd3usoPog0jUOqlX04B3Wgc4lc2QQg+4P/D+9yyBgjZFmzgw9I7vavBEiZgWbTlxP5jetNaiSAZpFKGs9uy/d8GgV1rNVhrK0X0rMyeaXfLIQgU97/oXV2W1j4ND4XMnHrO155Ct2TBgGXcj+e21cXy8esfq6G4z9fbNE7jTVKfbScgCIaFPYBK1mH7vP36sCz9NL5ez6W0OvcekakQ6BBgersHKmL5Zfft2+5z5GV9Wb6WiBmGFQazGHLAKBmbA2q01fpps3tamI/LwDTLvTRFgxiRZrFlAIzNoTLKw3ox3TJi7MoSrBFkdLYZibBhhh1G2VSj9uPL5XHZypg5ISKjmCwSFE6DNJkAhdr7+fv89vnpiz2yEXS40zYFyA6ZAUWCRD0sTpyG8XJkj9W6BicjpeyiLNIAIBk2UNFHZuL6nfHosp6Tl8t4zVmZFJK2LQCggYqXP/uMqXD14FKM8/l8GedZsgXZkMikbXhfgb+fVWoZ2IahzJd/jqfr3FOw7m+EBCegPSqAv3ZFLRafhn4aT/++3SZ1QbbNhAEZNLwHKgC8PJflsOIRyte3cZpSgJOUIdqgbBxwpyGFLiOrTsdx7BBkvjPw7+7dTXseVm0RvJ3H7vdlP3Ttp5ebRS3MqX+g12/5AREriDYQWHBYAAAAAElFTkSuQmCC",
+  "imageHeight": 22,
+  "imageWidth": 45
+}

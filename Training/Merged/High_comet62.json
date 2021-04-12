@@ -1,0 +1,62 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          13.600000000000001,
+          7.600000000000001
+        ],
+        [
+          17.7,
+          11.100000000000001
+        ],
+        [
+          18.7,
+          16.0
+        ],
+        [
+          18.7,
+          21.1
+        ],
+        [
+          14.7,
+          25.700000000000003
+        ],
+        [
+          6.800000000000001,
+          26.4
+        ],
+        [
+          0.5999999999999996,
+          22.700000000000003
+        ],
+        [
+          0.0,
+          14.0
+        ],
+        [
+          1.3000000000000007,
+          9.100000000000001
+        ],
+        [
+          5.100000000000001,
+          8.0
+        ],
+        [
+          10.399999999999999,
+          7.200000000000003
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "High_comet62.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAAEMAAAAgCAAAAABswZpbAAAC+0lEQVR4nJWWXY6cNxIEI7PYoz1AjwTs/U/n6RO4v8r0Q0uCF4asWb4SDPCnKoPi0+P+4K7y+MeEPrdcoEqgQsvH/8e4w4hYTBBUZdm/7effGXchGUlxB9WsWtK0fXyCcUcadbBiUb9WpKRdbT9+y/iGLHekCrtFEqH1RZN0P/6NcZcZMT1CkkyRKChVlyZJN49fMe62heXpCANTVVJD63WWXk23+/jJeD9DN3kA7xqOLI1RjqmkCiRWhFTbJk128/jOuL99mdkrSYp1JHuqQRPL4QWJqhKlodtNru7Hi3HX7XZuLOwVNPIRE2xxVPVEqYnzqo6GpJvdbB4HvilK1qrmDIsOknTEcOpIjHAFnk0FDsidqnD4alMuJDN+HXx0gh1pMkKqhJGoq2ql0Uqcy7kfbJwq1+HouOfqDExHRp3IMX27YBJLmNlzmfUV2T13uUwE9e02m+v1oCpSPch2Ua0I1MmshOsgEBzPoaT1+fL2Ns/nrNGI6exBPVAhtucyNUoliQizgYOZaqlu//nyBkgROapyq3ClSkW8mh9whdJ6ab2nOUatjjaMk6ZT4tmqfC+xGhFJa1TESoWixR9NWXTm0As8MjHdVRaSbimdrFV6tVWW4gLQw564yLebc4nrz12rWxGplZjGy1KgglaitEUgHVLZq7mdyTPJs90MOU9heUe7owbTSIG6Sy9KNrsfhz/+e26Sh6TPaJfiHa6Jm6iRkohVtI6rpKFNlxYOZC+zVPx50aCMTt0oGXl/3Kau4osLREI3adog4NvbiHnrdT0bCcYziHOdiYSsSFSN2irORpttNj/69n00Hvb5fABfNdZ0JHyL6h5UlXb6uspo0+bqbh8/c+w+0v7xI8i+2iMGDzW1pdcjlVZpSdht9uPXefpuqTN4UNXRSyyiCm3L1Z+h/OtcfzeWBRZmWovEpGoallci/8YvkoyFXo2iokJI2+aHXn7ryvv3rah6VakSsZCfmvuMs++I4buunVbhf+z/Oe/zUj8F/vl5+AuFl13XjFSG5gAAAABJRU5ErkJggg==",
+  "imageHeight": 32,
+  "imageWidth": 67
+}

@@ -1,0 +1,82 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          6.5,
+          2.700000000000003
+        ],
+        [
+          3.3000000000000007,
+          2.8999999999999986
+        ],
+        [
+          3.3000000000000007,
+          6.700000000000003
+        ],
+        [
+          3.1999999999999993,
+          9.700000000000003
+        ],
+        [
+          3.1999999999999993,
+          11.700000000000003
+        ],
+        [
+          3.8999999999999986,
+          13.399999999999999
+        ],
+        [
+          8.299999999999997,
+          13.5
+        ],
+        [
+          12.0,
+          13.5
+        ],
+        [
+          13.399999999999999,
+          10.5
+        ],
+        [
+          14.100000000000001,
+          8.700000000000003
+        ],
+        [
+          14.100000000000001,
+          7.100000000000001
+        ],
+        [
+          14.100000000000001,
+          6.299999999999997
+        ],
+        [
+          13.600000000000001,
+          5.600000000000001
+        ],
+        [
+          12.700000000000003,
+          4.299999999999997
+        ],
+        [
+          11.100000000000001,
+          4.100000000000001
+        ],
+        [
+          8.600000000000001,
+          2.299999999999997
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet69.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAACUAAAARCAAAAAB/HjpkAAABR0lEQVR4nHXS22ocQQwE0KruntvOOtgw4xiS//+2GA/Y8Xrn1i1VHjYkBjN61UEgqQgA+B5o/oLDIgD8qBNheTl0CRiqpqpYq/RNfj5SQ9fVgencYm4uyWXC9FW1d/cNHN23fn6t3naLjkcHpuGTTU/dw1DL/Ny2sZTM4q5YhCeN+mdT6vtTD0MXVfXbZmIsXhVKwalRt1mRMu+8i1DJp0uqiiUXHESEoFETEFS2Pdup7c5NHUOKIEWSDCSDBGBAyMv7vFLFeNfdNnTCIQGSMyCMQMp7WdoZ8T5W2fbF3OCCIFGAkyDGNP207cpyWrVfP97Xrcjg7oLk1M1OCZBs81wqLi+/VytyI1yiQ5gGgUICqLJKJe6X13k1lyRpGm5Pnf7ePi/wpGL28Tbvculz+38mHus2Non7dc1HoSAAjDFFz7+OcgP8AbQ73LpPQ0P+AAAAAElFTkSuQmCC",
+  "imageHeight": 17,
+  "imageWidth": 37
+}

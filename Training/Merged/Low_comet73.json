@@ -1,0 +1,82 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          14.100000000000001,
+          2.3999999999999986
+        ],
+        [
+          17.6,
+          2.200000000000003
+        ],
+        [
+          18.799999999999997,
+          2.5
+        ],
+        [
+          20.9,
+          3.3999999999999986
+        ],
+        [
+          22.6,
+          5.399999999999999
+        ],
+        [
+          22.9,
+          6.0
+        ],
+        [
+          23.4,
+          8.700000000000003
+        ],
+        [
+          23.799999999999997,
+          13.200000000000003
+        ],
+        [
+          22.4,
+          17.6
+        ],
+        [
+          18.9,
+          20.5
+        ],
+        [
+          11.700000000000003,
+          21.6
+        ],
+        [
+          5.899999999999999,
+          19.1
+        ],
+        [
+          2.200000000000003,
+          15.899999999999999
+        ],
+        [
+          3.299999999999997,
+          7.700000000000003
+        ],
+        [
+          3.6000000000000014,
+          4.299999999999997
+        ],
+        [
+          9.200000000000003,
+          3.299999999999997
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet73.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABsAAAAXCAAAAADffWvyAAABn0lEQVR4nF2SXXfTMBBEZ1cryYqTktBAoPz/v0ZJGvqR2JYtrSQeyKE9zNOcO493CP9lT3S6VboRJ63USsYZUzTr6X376p1p0MbeOdNyjPEIQADgh+8cF7RCbrO2KQ1ccdseVv3KFW6asFp/kpYc5YefgADf+vVd6JiXlKTb9JZinbp8OEIAZ32/C1Y1KfduxWrUWWFAcLDeh82dN7kma4kIk3ciAgjE2n7T73uLmoGSG7Wh66LszwLxwdvw+X6tqcQaS8tWrPODgexZnF9v7w/b+TpIdUl5cd6Klb2wMTZ0odv2nLSoSDF1ulg2kpkY3NhQVjWOnAnOhiCGiEiO3ZJa1TjQlFRmao6TMlqtTaBlnsZpvqRSa6zUUVqyaql6EuQpTOPwWy0zpUqo07iMMWmB4OTHYXh2c++6ltXEHF9exnHJBQLM5s0w7UrIlZaqaXg9P49LPkOAJxhGiruV1JZzSpfr69sUH/86euJWS5ycbyXVco3TOMbHd+8rH0Jv0Eot4zKn+cMngO+dWObakJOqnj9+CcAXQwS09usf+QODb/H+vif4vQAAAABJRU5ErkJggg==",
+  "imageHeight": 23,
+  "imageWidth": 27
+}

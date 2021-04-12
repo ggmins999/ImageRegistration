@@ -1,0 +1,90 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          12.700000000000003,
+          2.5
+        ],
+        [
+          14.799999999999997,
+          2.799999999999997
+        ],
+        [
+          16.0,
+          4.600000000000001
+        ],
+        [
+          16.799999999999997,
+          5.700000000000003
+        ],
+        [
+          18.700000000000003,
+          8.5
+        ],
+        [
+          18.700000000000003,
+          10.5
+        ],
+        [
+          18.700000000000003,
+          12.799999999999997
+        ],
+        [
+          18.200000000000003,
+          14.299999999999997
+        ],
+        [
+          14.600000000000001,
+          16.1
+        ],
+        [
+          9.0,
+          16.700000000000003
+        ],
+        [
+          7.899999999999999,
+          16.700000000000003
+        ],
+        [
+          5.600000000000001,
+          15.700000000000003
+        ],
+        [
+          5.100000000000001,
+          14.700000000000003
+        ],
+        [
+          4.200000000000003,
+          12.200000000000003
+        ],
+        [
+          2.8999999999999986,
+          8.700000000000003
+        ],
+        [
+          3.3999999999999986,
+          5.799999999999997
+        ],
+        [
+          5.0,
+          4.5
+        ],
+        [
+          8.399999999999999,
+          2.799999999999997
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet53.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABYAAAASCAAAAAB6TnHxAAABLElEQVR4nE3Ry5LTMBSE4ZZ0JHmceDIUCU5RbCne/4mAzVA1NrEztmzdjsSC4fIve/m1wFsfKgb8TQAAroZE5czl5b/50tjWKq4ppZjSAAAE9LbrDm1j4uaC97viASDAdO/eX/qHzd0OfvevTdBxJFyb46n/ci5ufZqXJR3vd1FAUPbQf/7YyCeEn+PogkbJFzobfXw8PpjOVn860bIghl2ShDFI+XxtsC2KJ+IFSlKVgnOq3WOnZqS0V19JVKqctpyMoTy9hjyNc8g5M402cJFllW7a4vBjctvmuRJy2t36vMIXf7vFtLrIPBJqjvfvk1U17HvluJfon0F40QuWrpXMEjlzcPO331SfrG1bMqqmXNM2f/0D22vdtrqAObp1+Od91loJITjGtyt+AYQ4uzNu/U9VAAAAAElFTkSuQmCC",
+  "imageHeight": 18,
+  "imageWidth": 22
+}

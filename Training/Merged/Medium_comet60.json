@@ -1,0 +1,70 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          15.399999999999999,
+          2.5
+        ],
+        [
+          18.9,
+          3.6000000000000014
+        ],
+        [
+          21.0,
+          6.299999999999997
+        ],
+        [
+          22.1,
+          10.0
+        ],
+        [
+          21.799999999999997,
+          14.200000000000003
+        ],
+        [
+          19.4,
+          16.5
+        ],
+        [
+          14.600000000000001,
+          18.700000000000003
+        ],
+        [
+          9.600000000000001,
+          18.799999999999997
+        ],
+        [
+          3.6999999999999993,
+          15.399999999999999
+        ],
+        [
+          2.8999999999999986,
+          13.0
+        ],
+        [
+          5.199999999999999,
+          7.100000000000001
+        ],
+        [
+          7.5,
+          5.899999999999999
+        ],
+        [
+          12.2,
+          4.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet60.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADwAAAAWCAAAAAC5oKD+AAACgUlEQVR4nH2UUW8kRRCDv6rumd1scjo4dhP+/89jV+QQgWRmumweJjkOhGj1W5dll9V28P/nfINzXM+kCN/++Rj/nn4MQhAGHOHAaQIcDinA3P4DfM42RQMGCDuFM+w0hMO2CWP0LuFv8FObD4epYKAq27BfNQdYYAdQZuzkH+Cnfjw93B2kGqtHVQnboJ0yMNhZYQtZvn4DX/rx0+cfHpJax9hqcWkMGxmwcSgcFlSWhWVxpQNc5ocff/p0n6safUyaRo0WKFRg20GkReKmiLCaonbmy+n+y+VhnmqUmnKUlrcaW4mytNtkGxsLU8KSdOtwOT58/nLSNqLTW8K2Bq9NOZSOXractvflQ46pKh1B5zyf7k65MgUxz91dS0Rp84iWZaVoFhG2W8ipJoeBc6dN04HRG9M0td4JhaJlS1oURWQpSRS0IkcmIhyJOr130+b5MGfEnKzlFmuQGZUVYUerjHLYpLosh9KGDhF5mE/3zY2U5Sm85rRWyMrhQKSsMFmBKyICgemXltnbac4st+rqLTattVQOuyTKCsshQrHhwPHue3eVMhmamp3cz9YylnUbJZUksAjsdO1ey95/L/32s70sL9sBdea7Y4717beX16pRGjJlsI0HIIiiMLZ969S69N+rUDvMOc9vX399/nOpwVIMIzv2fEGFQ7bDOcBXOtfHhrQth9lHXr4+P/+xlNahclngECoAOT845Xp3+5cnaluWu2OWt5fXTVVD2qzQRyrtIK0KG2Fk+/aeqvN8nOa7GbwNKMtDe375SFWEMCAqLV2/L4PHNvdIB2kzEN793FkdAQ6FdvkfXfZdDT1mC4L39IT3fSFwAk57F/OtBv8COq05oSELnOEAAAAASUVORK5CYII=",
+  "imageHeight": 22,
+  "imageWidth": 60
+}

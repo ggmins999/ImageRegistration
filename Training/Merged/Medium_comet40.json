@@ -1,0 +1,66 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          12.5,
+          3.299999999999997
+        ],
+        [
+          13.700000000000003,
+          6.399999999999999
+        ],
+        [
+          14.200000000000003,
+          9.700000000000003
+        ],
+        [
+          13.600000000000001,
+          13.899999999999999
+        ],
+        [
+          10.8,
+          16.799999999999997
+        ],
+        [
+          6.899999999999999,
+          17.299999999999997
+        ],
+        [
+          3.0,
+          16.200000000000003
+        ],
+        [
+          1.1000000000000014,
+          13.299999999999997
+        ],
+        [
+          1.1999999999999993,
+          8.700000000000003
+        ],
+        [
+          3.8000000000000007,
+          3.200000000000003
+        ],
+        [
+          7.0,
+          1.6000000000000014
+        ],
+        [
+          10.600000000000001,
+          1.6000000000000014
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet40.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADUAAAAVCAAAAADDIfmaAAACEUlEQVR4nH2Uy27jVhBETzUvSb2MAAHHCfL/v5ZFYAUzsBNZpnirspAw8WSRWja6qt8tHljOfMZyZpECCkAUPjkIYBmnsbhuW14WKkgVPASUSmRhkcDLv6zn3X5/3G1vl+tmKZFQV/TQFE5IuTq+h2xAG/ZPPx/64f3rx+oQlT2CoqhXZJVFiiHghTMNgK7x4OkvvV1uloVKFexSERBSIM5gydDgWcO4a0jzqXONXdgQqoauVBRaiFWKKlrODaZ5fzpMiYb5EG9D1IVcUBSUU3IRhS7igsav03w6thq3jWm+jrFVhAoiQ5RSVLjiKErFtC/jbtcsbr0PqCeFRKIekIgAyjIxiuIsbToep1Z+Zx51SzoaSB9iJOPWgwgJSLKClDYdT/OhrdusvVWkiF1WhOUhKChGie/k6ml0j1XJcNr59bqSshR6ZFGOIARhCSBxP7f1Y13Tav90aH9f33uwotg4isAEKptw6A+Ftq3r1XX6adbt9fy2JaA4hiiPzSWpqCuPAml/tMvU2jT78vbybXUfIswmK8H3pNRDQk8w6qHx+1Cad19vlz+/rUTeUFdcHVAIVDcyTpeJckbAb8enXa2vHymJGAwiuGQJ1CMcE+jk/LgFngcShpIgCVKSUkRIQaArBuf8/Sq/4xdVB8CCAUWmKLtikuhO+g/r8zNY7vOR7r0MP/yA/8eysCzAlx+s/wBT0YSRbayH1AAAAABJRU5ErkJggg==",
+  "imageHeight": 21,
+  "imageWidth": 53
+}

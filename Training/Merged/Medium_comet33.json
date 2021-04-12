@@ -1,0 +1,78 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          13.600000000000001,
+          2.799999999999997
+        ],
+        [
+          16.299999999999997,
+          3.6000000000000014
+        ],
+        [
+          17.200000000000003,
+          6.600000000000001
+        ],
+        [
+          17.200000000000003,
+          9.5
+        ],
+        [
+          17.200000000000003,
+          13.0
+        ],
+        [
+          15.700000000000003,
+          16.0
+        ],
+        [
+          13.0,
+          17.200000000000003
+        ],
+        [
+          10.0,
+          17.200000000000003
+        ],
+        [
+          4.899999999999999,
+          17.200000000000003
+        ],
+        [
+          0.5,
+          15.899999999999999
+        ],
+        [
+          1.0,
+          11.200000000000003
+        ],
+        [
+          1.1000000000000014,
+          3.299999999999997
+        ],
+        [
+          5.100000000000001,
+          1.2999999999999972
+        ],
+        [
+          7.800000000000001,
+          1.2999999999999972
+        ],
+        [
+          11.100000000000001,
+          1.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet33.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADQAAAAUCAAAAADnv0EBAAAB6ElEQVR4nHWTwW4bWRADi/3ejGQF3r3IyP9/n3VMImtmmsxB8SbAIkQfWUAfWOIzVwmUgFASCYxEAjeut/+aCIC3Za0B6bRRKsRERAhDgBDef0Nv5y/n5ST2vffDDcEdQYo8CYLl+PYJff1yeb1cVtXjY7s/utskx/OFWIQoCThJcgPx9vL67+s/67qw/Ti+PR77sevAEXnWiQgt4qaVdybL6bSe1vM6xnnuKsZRrpiWCcSqJBk4FQ8D8zrnwLJH1WWPs5EjVT1SCqFkQtkqRqJAlaD73lubylhXpLGoquZAVaUgCUn1vCtTYl/u5KS5MWYxuqxyxRpBBkpJRgMSGdcpBR/7XHqjfIRCpV1BSbAkQhAVW1KiiUZljDoeXgo7LqlDkshVCUKCDlLUcqo0l1U4XWMq7m53Ygcit0Xi2AKBMcxkn7xoqRn24/t9O7Z0x1GDqYYkQVE6IcA8PlKDYoxlu388HnfvNs8tRbHclchRJziJbvP9OvfuR8U/9m37vtkdWcbCksFYXUkISWgEX8/ry2WZ1cfHY4/lyFFIhILLT0nccuLbc+XX5XxeyLEdJAV5AhXJ+jVyS06ezC+frlPEAVEoUcqFAhVF0Cgh5vZbwv/lCiIUoDLIhHzK+xfoD/x2VYA/bOcnDumT12+8jVkAAAAASUVORK5CYII=",
+  "imageHeight": 20,
+  "imageWidth": 52
+}

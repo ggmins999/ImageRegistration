@@ -1,0 +1,86 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          15.100000000000001,
+          1.1000000000000014
+        ],
+        [
+          16.5,
+          2.6000000000000014
+        ],
+        [
+          17.700000000000003,
+          4.399999999999999
+        ],
+        [
+          20.4,
+          6.100000000000001
+        ],
+        [
+          21.0,
+          8.600000000000001
+        ],
+        [
+          21.0,
+          11.700000000000003
+        ],
+        [
+          19.6,
+          14.299999999999997
+        ],
+        [
+          15.0,
+          17.200000000000003
+        ],
+        [
+          11.5,
+          17.200000000000003
+        ],
+        [
+          7.700000000000003,
+          15.799999999999997
+        ],
+        [
+          2.299999999999997,
+          12.700000000000003
+        ],
+        [
+          2.3999999999999986,
+          11.299999999999997
+        ],
+        [
+          2.1000000000000014,
+          7.0
+        ],
+        [
+          3.1000000000000014,
+          4.600000000000001
+        ],
+        [
+          6.700000000000003,
+          2.3999999999999986
+        ],
+        [
+          11.399999999999999,
+          1.2999999999999972
+        ],
+        [
+          14.100000000000001,
+          1.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet82.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAAAAACxEqJUAAABUklEQVR4nEXIy1LbMBiG4c/SL1mK4gRXMXGAwkxmsmMBvf8r6JoFi7bTgZk2B+fo2o4PklnA0Hf3PgHemxAPOLrOZQAAAgCkoY6UZG39r6TlJ98M7Sw2DEW+3zHWZO98e3G3mEe8P2/WXMp8m2xAwFd7+/B4HVJ3iAfmL5N+BxDS6Pr+2+OVr11iiJWOVWW6JGg7W8yvOBdQZRYf0cdVn1KixtPZmAMAcTlIANa5mkhpE3aeAfCUBAxj4w+cOAWu5I0C0A0J2hyaF9cS/LmoqjMXrg/Bw4KOdXHuybdtcThBjKT23gvhXFU1Lbmm3b3K8XBiNAPv26LMT1VGK32k4GTtXodyNOkrt3lZv4JQHttia78sTWgvO1b8fvqxBwJgKtRgGEVmai9i/+v783YDBAAwVSJUUWRHevnzzynDBwOXJNXAiHyfr4D/DCAVgauzj3kDh++PTIKxnIgAAAAASUVORK5CYII=",
+  "imageHeight": 19,
+  "imageWidth": 22
+}

@@ -1,0 +1,82 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          12.100000000000001,
+          2.299999999999997
+        ],
+        [
+          8.899999999999999,
+          2.299999999999997
+        ],
+        [
+          5.399999999999999,
+          2.3999999999999986
+        ],
+        [
+          2.3999999999999986,
+          3.6000000000000014
+        ],
+        [
+          1.6000000000000014,
+          6.899999999999999
+        ],
+        [
+          1.6999999999999993,
+          10.5
+        ],
+        [
+          3.1000000000000014,
+          12.0
+        ],
+        [
+          5.300000000000001,
+          12.700000000000003
+        ],
+        [
+          9.8,
+          12.700000000000003
+        ],
+        [
+          13.700000000000003,
+          12.5
+        ],
+        [
+          13.799999999999997,
+          11.200000000000003
+        ],
+        [
+          13.899999999999999,
+          9.200000000000003
+        ],
+        [
+          14.100000000000001,
+          6.899999999999999
+        ],
+        [
+          14.100000000000001,
+          5.299999999999997
+        ],
+        [
+          14.100000000000001,
+          3.200000000000003
+        ],
+        [
+          13.200000000000003,
+          3.1000000000000014
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet77.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADQAAAARCAAAAAC3ctCyAAABQklEQVR4nIWTW44jRwwEI9g9N5C89z/f9A08zfCHJGAN+FGfzApWMZGUfz8PsdDC7wfXR/Ctw/W4fruP+FI7Sha3DybAHwMQ2/UmVFLBXICioOsN/ToOhuhuCUFNJyQyZAtquUAe59c5Tdy0beF0EKIrhFEEW3VxPr7O8/gqO+6MAKbRcp1bBaRICDiPmTk88KcFXB2MVGc6P/+zmNZgnDk81KOZ0UHk1b0DQ5nRVGKOJwPdrPd90+69ChuJzGt6CJaAkXqeZduf5v5su3as1gRvKwE5tnBBv8+9mXXw3vt2aZaSNZLMHVyI1lqQ54wzbLe7qTjYNM0nMG/PW/nZC4HnSLFc7zgw7owrqjX3ENFudX1a/T2oyEy8sgTiSkXcXfwjBDxp8mW9wGvIaD/Z+6/lEDGN11MX/wvBQ1Ig+P4U/wKQIPJYURe3CQAAAABJRU5ErkJggg==",
+  "imageHeight": 17,
+  "imageWidth": 52
+}

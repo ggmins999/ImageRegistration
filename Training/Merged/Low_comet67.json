@@ -1,0 +1,82 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          15.5,
+          2.200000000000003
+        ],
+        [
+          18.5,
+          4.299999999999997
+        ],
+        [
+          19.299999999999997,
+          6.899999999999999
+        ],
+        [
+          19.4,
+          10.399999999999999
+        ],
+        [
+          19.299999999999997,
+          13.200000000000003
+        ],
+        [
+          16.9,
+          15.799999999999997
+        ],
+        [
+          10.200000000000003,
+          18.9
+        ],
+        [
+          5.200000000000003,
+          18.299999999999997
+        ],
+        [
+          2.6000000000000014,
+          14.100000000000001
+        ],
+        [
+          2.200000000000003,
+          11.299999999999997
+        ],
+        [
+          2.1000000000000014,
+          9.5
+        ],
+        [
+          2.6000000000000014,
+          6.899999999999999
+        ],
+        [
+          4.399999999999999,
+          4.200000000000003
+        ],
+        [
+          8.700000000000003,
+          2.5
+        ],
+        [
+          11.399999999999999,
+          1.7999999999999972
+        ],
+        [
+          14.100000000000001,
+          1.8999999999999986
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet67.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAVCAAAAACWQBrEAAABiElEQVR4nFWRW2/TQBSEZ8+u11m7aRwrMSWFoIr//1PgEXGTkCpoSeImjZ34cvbGQwDB9zjzNPMJXFgkKZEQ0Vn385IIAMBNYSbGCG/D2J9H5vpPs56VJpsVmT2fh75p29NYAwrAenpdpMXsel64+nTYb6KnagsF3E5MKvPMzG+q/Ly719xzdIBCpZMkpZC+eHtb5f4evj0y06ImpInWUql0Wi6r/PquNJkhqSRoKbPpRMiivFJTAPksnchEKbUkJYVnr5MotbnMCJBEAEU/WkHeOWgPAP3QR0EhROU9DzKxHpadArpj0wdrXahp50d2QYSotAbw4/HUsXWRQODgBanJVTknoP203Xc9u+hAqHVmimq1Xi0AfPiyPY8DO7+DAkRazMvXb14B/PH9982h7Tq2gEIVIJLM6EY3X999ezoc+9N4eTTGrjk2j5zyw+eH46lvB8s1AIXdipunuDO0f26emXvmzV9zL6d5lkk3DAPbMP5WejFXJamk4Lz3YQv82wALirHGf/wCWHPRzk6aOYEAAAAASUVORK5CYII=",
+  "imageHeight": 21,
+  "imageWidth": 25
+}

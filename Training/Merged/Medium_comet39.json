@@ -1,0 +1,74 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          14.899999999999999,
+          3.200000000000003
+        ],
+        [
+          16.799999999999997,
+          6.700000000000003
+        ],
+        [
+          16.700000000000003,
+          9.799999999999997
+        ],
+        [
+          16.700000000000003,
+          13.5
+        ],
+        [
+          14.5,
+          16.299999999999997
+        ],
+        [
+          10.600000000000001,
+          17.5
+        ],
+        [
+          6.5,
+          17.6
+        ],
+        [
+          2.3999999999999986,
+          15.799999999999997
+        ],
+        [
+          1.5,
+          14.100000000000001
+        ],
+        [
+          1.3999999999999986,
+          10.299999999999997
+        ],
+        [
+          1.6999999999999993,
+          7.0
+        ],
+        [
+          4.0,
+          3.8999999999999986
+        ],
+        [
+          7.899999999999999,
+          3.200000000000003
+        ],
+        [
+          12.399999999999999,
+          3.200000000000003
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet39.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADEAAAAUCAAAAAABlopFAAACA0lEQVR4nH2T206bQQyEZ3Y3fw6EJJQ/FLUVPbz/a7VCJK0gEHLY9UwvgIoKtXNjy/JIljwf8EbL/u3slfhc3w8GdrNBQraM9X8dlyezcee621fAdsiQBGD1D8fVfDafZx4e7g/HgJoCDkkUDBvgKysBfH53Np50nJj3d7t9C0U0WbIFQ6Zh/TmyAB9nEz3S0zKdtJu7251Uo4ZDDkLOoo20pEGtgYK+Y43OKKPFyXBQwBa5sYqyU2QowbZMGARQMChuw8Ru9mF55rS77UpUF0ZjS85yginCNICl1wWFKIPu9OLq64IboCvVZoEs0zZMgs7BJCWhL30ej3OeXn77cs7tZlfJXJkAJ0skCdGEE0wwaVXKcFTy6HSxOK0Pt5u9TRb4aAKkmJ1kA8mGcgB9gWMwmnT7612rezcfwxYkhwwIaLQSRIAywNIiymQ+PtyszRPv7x+boh2jKTUqnEAJMgXboFHWUw8X5/mwz2Vkb3/uoHqMGo0UaQeIp8+Lhrgq2DfhAXk46krcfN82q0Y7VjY4FEQkCE/rhoGC6+GgzSfTBNVfP7YINNdWAwwFEEDLsmkT8OopV59mp9PJMNfNtsLBwDECdgQAgaIt0oDXL9m9GI4HyQ1EQlBoYYUA0DJoGMALMM9E9YkEC0uS7QbJMO01APR/wcVXfZ+YCNnwqv8XgvgNNEGDYnh0v8MAAAAASUVORK5CYII=",
+  "imageHeight": 20,
+  "imageWidth": 49
+}

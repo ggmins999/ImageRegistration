@@ -1,0 +1,78 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          13.799999999999997,
+          2.6000000000000014
+        ],
+        [
+          19.4,
+          4.0
+        ],
+        [
+          23.4,
+          5.5
+        ],
+        [
+          24.0,
+          9.799999999999997
+        ],
+        [
+          26.200000000000003,
+          12.899999999999999
+        ],
+        [
+          25.200000000000003,
+          18.799999999999997
+        ],
+        [
+          18.6,
+          20.5
+        ],
+        [
+          10.200000000000003,
+          20.0
+        ],
+        [
+          4.399999999999999,
+          18.0
+        ],
+        [
+          2.5,
+          14.100000000000001
+        ],
+        [
+          2.5,
+          11.399999999999999
+        ],
+        [
+          4.5,
+          5.700000000000003
+        ],
+        [
+          5.799999999999997,
+          4.0
+        ],
+        [
+          9.200000000000003,
+          3.1000000000000014
+        ],
+        [
+          12.799999999999997,
+          2.799999999999997
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet37.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAAB8AAAAXCAAAAADWlsuIAAAB5klEQVR4nG2STXObMBCGV0joA7ABGzBJmvTY//93Oplpm7SJHcA2mA8hCdFD7Iyb6XvZw7N7efdB8JGMILODT0HnmVDBqJ6M0ar4D89FkoR0GLtWSqnt9hPPo819umLzdPh9HNrejqMqr3i+ergJF+EiQFP1q2g72XeD0iUAAAGANLzPBELYXXje3e2Pst03Xd33aXHm/ibjLsIsYNGKZsnjIS5rXgFKCwACcBfnnCFKOeYiZOuU/zkun9A0WQsABFIvjhfM5ZGgPFoSgG/B4blXLVNmswMCbpAH3iJeCn8dRQSAc++lWXXtSTpOUhJgnr9e38au68WJAwAAPMiLZeF1GKGEJJisvj6sxBwI7pxL8YVPhYMxtluCmefmeSAwxfhSGgVG8GyRg1Li2Fk5oScutwAAXd/1ap60mcFBMDU/35S5wtVLLftB6RlsQV5Ef/jO1F12oeZpf3wrT20jjbVAQB44tUafFu8b3WN1qrfP26rTRpdAQMkaT7r6kpVr3x2L16oeiv1r2Q7alAAECuxMSjW7LNsgZdq6b7vjvmwaOb2d/3tDxTIRURgI18jaDFXTNf34/t93PzbC94KAc4umQY4nOQ56949fCXcZozOeqRyN1OZDsIufkLjEmWcHWTPBlcV/AbFi8XNUTVoJAAAAAElFTkSuQmCC",
+  "imageHeight": 23,
+  "imageWidth": 31
+}

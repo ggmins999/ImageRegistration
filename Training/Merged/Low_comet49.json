@@ -1,0 +1,94 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          16.1,
+          2.200000000000003
+        ],
+        [
+          18.4,
+          4.0
+        ],
+        [
+          19.6,
+          5.299999999999997
+        ],
+        [
+          20.200000000000003,
+          7.0
+        ],
+        [
+          20.4,
+          8.700000000000003
+        ],
+        [
+          20.4,
+          11.700000000000003
+        ],
+        [
+          19.1,
+          14.200000000000003
+        ],
+        [
+          17.4,
+          16.200000000000003
+        ],
+        [
+          16.299999999999997,
+          16.5
+        ],
+        [
+          12.299999999999997,
+          17.1
+        ],
+        [
+          11.799999999999997,
+          17.1
+        ],
+        [
+          8.299999999999997,
+          17.200000000000003
+        ],
+        [
+          5.100000000000001,
+          17.1
+        ],
+        [
+          3.8999999999999986,
+          14.600000000000001
+        ],
+        [
+          2.8999999999999986,
+          11.700000000000003
+        ],
+        [
+          2.8999999999999986,
+          9.399999999999999
+        ],
+        [
+          4.100000000000001,
+          5.899999999999999
+        ],
+        [
+          7.100000000000001,
+          3.700000000000003
+        ],
+        [
+          10.100000000000001,
+          2.8999999999999986
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet49.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABgAAAATCAAAAACv25LnAAABTElEQVR4nE2Q23KbQBBEm2W4GEnBSQSyhGMnKpfz/3+UKlcs2UICFlgW9pYHRbbmqeucl+7xcH2Z51x5jt4n/REHzGg7aVVeiXXyfREyTEZIIdTbReRfVstvScicGdqq4r18BwHAJt8UebqIYsi6TJhVelkSgPvs53a9ustm0dD+jVQ3SKVBwPrr4/PTw3aTwLn90MznTUQBCFjcPTxufxcAPI+iKI7ID9WKoUizbP2r+N/OM9oxAixDvEhv8/SMp/o4TMY4qw8sD8n33QQAUC/7su7HcVAG5FklRfUqZzfg5W5/OHLOu+ENZKaxr/ekQif6U31qTqcD73cAlYns6ttAONV3bSNa3lT9KwCCGppjPMak5LEWYhScv+As+jBQ/MZZLiahx6rZXd6ex/N0FpA1o9Zd++cyCACKmALnO6OlKHEtgCXzrXUfFMA/2a+5Xe3q1dsAAAAASUVORK5CYII=",
+  "imageHeight": 19,
+  "imageWidth": 24
+}

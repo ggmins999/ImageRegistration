@@ -1,0 +1,86 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          13.399999999999999,
+          0.7000000000000028
+        ],
+        [
+          16.5,
+          2.5
+        ],
+        [
+          18.0,
+          5.600000000000001
+        ],
+        [
+          18.1,
+          7.600000000000001
+        ],
+        [
+          18.1,
+          10.5
+        ],
+        [
+          18.200000000000003,
+          13.299999999999997
+        ],
+        [
+          17.4,
+          14.299999999999997
+        ],
+        [
+          16.6,
+          15.399999999999999
+        ],
+        [
+          15.100000000000001,
+          16.299999999999997
+        ],
+        [
+          12.200000000000003,
+          17.200000000000003
+        ],
+        [
+          8.299999999999997,
+          17.799999999999997
+        ],
+        [
+          3.6000000000000014,
+          15.5
+        ],
+        [
+          2.799999999999997,
+          11.799999999999997
+        ],
+        [
+          1.5,
+          8.299999999999997
+        ],
+        [
+          2.700000000000003,
+          2.799999999999997
+        ],
+        [
+          6.5,
+          0.7999999999999972
+        ],
+        [
+          12.299999999999997,
+          1.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet62.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABUAAAATCAAAAABaJRlXAAABSUlEQVR4nDXI3W6bMBgG4Nf2ZwdDfkhDSLtNWtWT9v6vo1dQTZo0KWvHSGkAY2Ow6cG05/BhAIBSKc5AFK0JNQACUOanPE5Y9GGoml6+AgScbp/uk954sb7Tlx+/an4GAcXT4z1vXBDbh429fVaEM+H7scz37DDNOH3bz7tgbFtQkd1IMe1XnNPuuPF5eahXhkSK/pKlgnPFCVGfbjhjJGiwXcX3OpNKBMgohFTEsA4mfSedSWH41EyC2EJcUZavNaVJGhx3brAhgOBDvlHFlqTC6FxbfUxLpLEdffL1SGsZ5h5tV9ddAFXppYgENfjE98v4eu6snwjueu1b6RbJe7j25Y8Jvia86d96POgtoo3N38tg7QgCfjJfF0Ual2XoOtO8DzUYAHzZ7TKt4hzcZK7DG/4tylWiOcQy+95X+L9AKTixZR5rAMAnz8OkS6pbfRAAAAAASUVORK5CYII=",
+  "imageHeight": 19,
+  "imageWidth": 21
+}

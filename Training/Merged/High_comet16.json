@@ -1,0 +1,70 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          9.100000000000001,
+          4.899999999999999
+        ],
+        [
+          11.5,
+          4.899999999999999
+        ],
+        [
+          13.8,
+          5.600000000000001
+        ],
+        [
+          15.100000000000001,
+          8.100000000000001
+        ],
+        [
+          16.0,
+          13.0
+        ],
+        [
+          15.299999999999997,
+          17.799999999999997
+        ],
+        [
+          11.7,
+          20.299999999999997
+        ],
+        [
+          7.399999999999999,
+          19.5
+        ],
+        [
+          5.300000000000001,
+          17.9
+        ],
+        [
+          1.8000000000000007,
+          15.200000000000003
+        ],
+        [
+          1.1000000000000014,
+          11.899999999999999
+        ],
+        [
+          2.0,
+          9.299999999999997
+        ],
+        [
+          4.0,
+          6.899999999999999
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "High_comet16.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADoAAAAZCAAAAABF6GJsAAACE0lEQVR4nI2UQY4cNxAEI4q9ekFrrf+/zvbM3cBuM9OH1ko6SJZJECAIBKuYrEr57Tifp7bWx/n84dzfYGgdMdCW+vg/6DnIvSgAIeyPyL9Ez5k73kAHWigh7d933j9FT0Z1xFVADZ2QlrTdz+/oK6t2PwBOF7rQqcoUjaXlMiXpfn6gXxYz7c71PMfR0ZkyDBVtp61p0ra7f93ouZx5GZu8hZnVGZbS4Q4KvTXODqlXrwfC5zXq8TJwve/cqBy1OmGKlc2EJKG8p/shf3xygus4mOt9v68ZV5fck8pkiKFtkzbdOz1ej5flTh1WD7JQnS4YynSZMaoYtwxstYfHLCjlGMhsyyHDAMOUKlM7+ZpInEwZEGOb7RoHFFSjtuK6OmKdgqIITLJ3TJIgE4WAZjRSu4f99bKKuIs6jyv7unbtpN1twWRv2IF6mdY2Tej9nWU3BxeHrVlJ3pJMwyBbi+ims4EKTdvqrQB8gZn18kn3P9eeNbMYO4wZ9/1k4YKQstNcyQH8ec7g3jT7CvSun0yBDG0NNrZht92xzwPg+Rqv451rv4ccBVuhrG0K1kpT25o0+dY55xqHtz7uTp1RHFQ7EaqhNKEh2c8f+vW0z2/bJYOrC7GU+4a0JU36+LVLfB7UZUUpt6olt8iP/zIYOMe5i6TCRNqWNv21wXw3mlW0i4ofCX9Y4m/MlBPBImBLvzvxvzSOrOuqGbiEAAAAAElFTkSuQmCC",
+  "imageHeight": 25,
+  "imageWidth": 58
+}

@@ -1,0 +1,98 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          12.899999999999999,
+          1.5
+        ],
+        [
+          16.5,
+          2.299999999999997
+        ],
+        [
+          17.9,
+          3.299999999999997
+        ],
+        [
+          19.0,
+          4.299999999999997
+        ],
+        [
+          19.4,
+          6.299999999999997
+        ],
+        [
+          19.4,
+          8.299999999999997
+        ],
+        [
+          20.1,
+          10.700000000000003
+        ],
+        [
+          20.1,
+          13.100000000000001
+        ],
+        [
+          19.9,
+          14.600000000000001
+        ],
+        [
+          17.1,
+          15.600000000000001
+        ],
+        [
+          15.200000000000003,
+          17.299999999999997
+        ],
+        [
+          11.600000000000001,
+          17.299999999999997
+        ],
+        [
+          8.899999999999999,
+          17.0
+        ],
+        [
+          5.0,
+          16.0
+        ],
+        [
+          3.799999999999997,
+          15.200000000000003
+        ],
+        [
+          2.3999999999999986,
+          12.600000000000001
+        ],
+        [
+          2.3999999999999986,
+          8.600000000000001
+        ],
+        [
+          3.700000000000003,
+          5.200000000000003
+        ],
+        [
+          5.0,
+          4.299999999999997
+        ],
+        [
+          7.899999999999999,
+          3.700000000000003
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet52.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABoAAAATCAAAAACrLkLaAAABcUlEQVR4nE3RS2/UMBQF4Gv72iZOhpmBTCkCpApQ2XTRXf//f4E2nSTKw47j+JGwGHXgbI50zvIj8JYbxhC2La6pvgzkUqXI3imJZA3WLX6N9fX6nB+OtyexRquNma2d/evlKtX+9u7+h2KLqdthGIduci40CADFx7uHx/sdW3Svjm3X5Fk9wAYI8PXw7fHpV6mShhSK97u84WtKARA+5eX3n1/2AoBJuUvFsRAwa0tPCLz4cLNnJNG4JBScU5pGySkFBF4csmAMC6H3kVHFCkQC21ZjKTjM2uo5eucpKyLEYK3zERDZoq0zKw0pErqHRY9t308+Aa7BRdsLRW3cMrVQOlbVWc+hAjyrZI1G7T2VPgSx9c/nfnILAMK6uKnVaeOouFEs9C9VO9gaAMF789oJQJk7KiUx3Z+qmxoAQEg2jVKILHecSerHthl+X1FK5FkumUDBouvH6eV/r5PgAgUlJFrz/GZL/iEjhRSrqzr8BV94zRdvXZ4dAAAAAElFTkSuQmCC",
+  "imageHeight": 19,
+  "imageWidth": 26
+}

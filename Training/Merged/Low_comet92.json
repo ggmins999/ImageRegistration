@@ -1,0 +1,82 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          15.399999999999999,
+          1.6000000000000014
+        ],
+        [
+          19.700000000000003,
+          2.3999999999999986
+        ],
+        [
+          21.6,
+          6.200000000000003
+        ],
+        [
+          22.6,
+          10.799999999999997
+        ],
+        [
+          22.6,
+          14.200000000000003
+        ],
+        [
+          20.299999999999997,
+          18.6
+        ],
+        [
+          15.700000000000003,
+          21.0
+        ],
+        [
+          10.5,
+          21.4
+        ],
+        [
+          5.299999999999997,
+          21.4
+        ],
+        [
+          2.1000000000000014,
+          16.9
+        ],
+        [
+          1.2999999999999972,
+          13.700000000000003
+        ],
+        [
+          2.0,
+          9.200000000000003
+        ],
+        [
+          4.5,
+          5.299999999999997
+        ],
+        [
+          7.600000000000001,
+          3.6000000000000014
+        ],
+        [
+          11.200000000000003,
+          2.700000000000003
+        ],
+        [
+          16.4,
+          2.1000000000000014
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Low_comet92.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAAAAADB6bIZAAABoklEQVR4nE3S2U4bQRBG4b+rq2fGawx4CUqkvP+LGRwbgT1Mr9VduQhIPrff7TG4b+cYRqpcAMDcwXM/c86UEpPUyz39XK7mPZGK+M+c8gX8BYfV5nExZ1NbKo5vYvFNfx6eHn8su96q9zdVKW17YQDYbvbb3eNqOetrG99rLKErFQzgsNltt/vD07oz5mokjo67XMHA83rVDavDr93aybUfBjeLzpE9MPYz1w+L9cNmt1Q/GxVD1zlrVAlsyM7mi+XMGqVsLRGpBcEwFDzMFwtbPak4VjTTKhoMw7rOsjGpJGtjKygGgBCE9+y4Yw052E5Srmq0qpRYLkzEbFtKI6PNq2lVUwkh1woistwaQpgEQUWrfF6nKctfEDmryKGUlAtQp+nj/X3M0gC2RlslwFoI+/Ht9fg2hpxfAS6Je21ki7Scb6fTy8fNh/gCgI+/XW5SY5dGP53P59t0jekIAIxSJLKzjsJ1vPrb6H18wX86OU+GqLxFn2KYQownfBESQcunqVokZp+P30cYALu+GyypVJFSzrgnbNlaaGutXu4G+wejLAS6bj3fqAAAAABJRU5ErkJggg==",
+  "imageHeight": 24,
+  "imageWidth": 26
+}

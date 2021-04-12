@@ -1,0 +1,74 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          10.899999999999999,
+          3.200000000000003
+        ],
+        [
+          8.399999999999999,
+          2.1000000000000014
+        ],
+        [
+          5.399999999999999,
+          2.8999999999999986
+        ],
+        [
+          3.0,
+          5.399999999999999
+        ],
+        [
+          3.0,
+          11.200000000000003
+        ],
+        [
+          3.3999999999999986,
+          12.100000000000001
+        ],
+        [
+          5.199999999999999,
+          13.5
+        ],
+        [
+          8.100000000000001,
+          13.799999999999997
+        ],
+        [
+          11.5,
+          13.600000000000001
+        ],
+        [
+          15.100000000000001,
+          13.899999999999999
+        ],
+        [
+          16.1,
+          11.200000000000003
+        ],
+        [
+          17.0,
+          7.799999999999997
+        ],
+        [
+          16.299999999999997,
+          4.799999999999997
+        ],
+        [
+          14.700000000000003,
+          3.3999999999999986
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet8.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADIAAAARCAAAAAC6bKD1AAABqElEQVR4nH2TwW7bQAxE33BXll3nGDdF/v/v7GPiWNKS04PcFiiKEiAGIDCX4RvxnLcewEj7xv9Hu7xPxx7KkblGph3YFiCDdX29/WX5Pr/M8yRGjm0ZmYZSIaCEw8ZQ3H5b3s6n48vcAm/rYzzGyJJdrWQw3qWwrwAdLvPh+HKa50lZj8+lpHBh3GyVsBK5pNJbmVuHPs3z8dv51KLWZtKxuiUO2+4l0zCSelkqOpfpeDq/nM9zn7ePWvoh15Z0pSUMkci4SRUFunTa4fjtPJ9Oh+5Sn5qCLruCUolQc0W1CqLCuOIyH6Lp0HpXi+ZS7VGGHA5ZRgJCQhYQEb2VBGRqGxo5ZIcA42oWtiSwkWR1cj3a5RwVy/L4WkYOOw1UoMKFi32xqV7OLXPccR/L18fnsm7JHnLZsksW1P5OmejX9xrLh08LjFwe98dWBbaBtLChKFzar9UZq7xuX0x4u98fWYVU7HnJKj3xUWHXFcHrcTocpkmMx72GQRYyTy5VRhhbia9PLH+0KbrH2KoECCEMlkAVBu8w3P7Azyv/qMlFBhXIsn4V6Sde1EUyrf+uUgAAAABJRU5ErkJggg==",
+  "imageHeight": 17,
+  "imageWidth": 50
+}

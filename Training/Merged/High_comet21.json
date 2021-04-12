@@ -1,0 +1,42 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          3.5,
+          3.299999999999997
+        ],
+        [
+          5.5,
+          3.799999999999997
+        ],
+        [
+          6.600000000000001,
+          6.5
+        ],
+        [
+          4.799999999999997,
+          8.799999999999997
+        ],
+        [
+          1.6000000000000014,
+          8.399999999999999
+        ],
+        [
+          0.3999999999999986,
+          6.200000000000003
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "High_comet21.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAACUAAAAOCAAAAACNnooqAAAAwElEQVR4nGWRQW5DUQgDZ8gVXu5/v+afgenip1XUskDIWAaM/IsjDeEaXOcCP9tcT4BHMQEQfD27hMN1rnMdJpU0wwDK9sKDoYGmt7bIgkULDb5mQGZU0PEtOak3+MQUg4mBdAcsi2xpEKMlFouxAeOBQkHTAhsIvc/qXWyAdjtxfJ17PndKYIFcoh+/jtCDZh9NEsJKtH66ekAbdxBI1pv49ek9cGyYpoyYhbr4w+JcR7gX3iF4wT/W778Beb2Bb/gCdWKiIwroAAAAAElFTkSuQmCC",
+  "imageHeight": 14,
+  "imageWidth": 37
+}

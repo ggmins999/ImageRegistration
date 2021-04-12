@@ -1,0 +1,66 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Head",
+      "points": [
+        [
+          6.199999999999999,
+          4.700000000000003
+        ],
+        [
+          3.0,
+          6.100000000000001
+        ],
+        [
+          1.6999999999999993,
+          8.299999999999997
+        ],
+        [
+          1.5,
+          11.399999999999999
+        ],
+        [
+          1.5,
+          15.5
+        ],
+        [
+          3.6000000000000014,
+          18.799999999999997
+        ],
+        [
+          8.2,
+          19.4
+        ],
+        [
+          12.0,
+          18.1
+        ],
+        [
+          12.899999999999999,
+          13.600000000000001
+        ],
+        [
+          12.100000000000001,
+          8.799999999999997
+        ],
+        [
+          11.2,
+          7.600000000000001
+        ],
+        [
+          9.5,
+          6.700000000000003
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Medium_comet91.png",
+  "imageData": "iVBORw0KGgoAAAANSUhEUgAAADoAAAAbCAAAAAAIIMNnAAACcUlEQVR4nIWUy25cRwxETxVbj7GFZDNSHv//cYE0QIDEljWaS1YWI9sKLNu96A37kGiwqsRPzh5B4PBNRT/CboXPj8JEMK8bfAfdI1FE0pSHaFIzDPNl/tvo3pKRozgSilqahIZ++A66P9xhiQpL1kRIEzntyRaY9OErutdLp71KxilrljATq50YwswwdKYPL+jtzdVpttNfeyjbuBCiDAGr5Q0RNaF7MjMPIPhtt7teW46Pz4OXXUpFTmVEKQ7M6HzPkG26c2Dx5+7m3fXqra/+blFLliOZVBQraGTQUI40E6kG1h+//rK73F3mn+fr3aPAhSWhuZiCUOryqUCQjAUbCFbVen+1W84D189brSpQaVAshBiJi6jr/NuRncn+YHXnankub8rrrDmMcFmSSsgaORiEAo1k45w+/fsxHPP++ryoHgCPEOg0g/F83m8kXC50u3o7Pn3wO33orZNJykCHKE5ANWTsrumIVBJviLWtflp81OPWjSok0JYTbxV5mtFiqsekOaGWSNbD3Zye1sWqkjZGUy0Ckbo2ObRBkxGTSStKZnJY3N92L0SePx2zLrJ5QuQ4DZMxpEmGbB4l7VN8Omv498urNXM8jqu4kHERbCkaa5QIkobWpLt77j/L31bfw75slyQbIY+QUTsePO2eVs/0lodvTHcn25RXO1grY8XqSsjMMMl098NbVr/TebCEBKUoqgnhhJps6nkbhb1txarIKwg5aTy0Mun56tc3YSRJFhZogmAGpSed76OwF5aRKgrOGR9o1PMqYN6mqchSLzwKGQ9D7l/qP8xh2EtQEEUtRq+S+CfoFzwQ/L8I/w+IMbZ8cETOYwAAAABJRU5ErkJggg==",
+  "imageHeight": 27,
+  "imageWidth": 58
+}

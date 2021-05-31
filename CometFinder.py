@@ -45,13 +45,22 @@ def loadImage(path,name):
     contours, hierarchy = cv2.findContours(bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) #find contours
     good_contours = []
     bad_contours = []
+    dilation = 1.2
     for contour in contours:#loops over all the contours and sorts what we have specified to be a comet
         area = cv2.contourArea(contour)
         x, y, w, h = cv2.boundingRect(contour)
+        dilatedwidth = w*dilation
+        dilatedheight = h*dilation
+        dw = dilatedwidth-w
+        dh = dilatedheight-h
+        x = int(x-dw/2)
+        y = int(y-dh/2)
+        w = int(dilatedwidth)
+        h = int(dilatedheight)
         if w < 5 or h < 5:
             continue
         mycomet = bin[y:y+h,x:x+w]
-        if area > 25 and (w/h) > 0.5 and (w/h) < 8 and w< totalw/10 and area < 50000 and w>1 and h>1: # finds canditates specifies bounding box, has to be square or rectangular (accounts for low damage comets)
+        if area > 25 and (w/h) > 0.5 and (w/h) < 8 and w< totalw/10 and area < 500000 and w>1 and h>1: # finds canditates specifies bounding box, has to be square or rectangular (accounts for low damage comets)
             good_contours.append(contour)
             print("good_contours",x,y,w,h,area)
         else:
@@ -75,7 +84,7 @@ def loadImage(path,name):
     cv2.imwrite("total.png",total)
     for c in good_contours: #for candidates calls cometstats which are the equations to find percent damage, length , width etc
         x, y, w, h = cv2.boundingRect(c)
-        #img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 1)
+        #img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 1)e
         try:
             writeComet(gray[y:y+h,x:x+w], n,outputdir)
             n = n+1
@@ -105,7 +114,9 @@ def loadWells(path):
 
 
 
-loadWells("/Users/gigiminsky/Downloads/P012")
+loadWells("/Users/gigiminsky/Downloads/IC001/Post-comet")
+
+
 
 
 
